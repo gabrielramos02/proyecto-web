@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
                     },
                 })
                 setAuth(data)
-                navigate("/user")
+                navigate("/user/me")
             } catch (error) {
                 setAuth({})
             } finally {
