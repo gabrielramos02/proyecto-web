@@ -4,9 +4,16 @@ import AuthLayout from "./layouts/AuthLayout"
 
 import Login from "./paginas/Login"
 import User from "./paginas/User"
+import ConsultarEstado from "./paginas/opciones/ConsultarEstado"
+import GestionPaciente from "./paginas/opciones/GestionPaciente"
+import GestionUsuarios from "./paginas/opciones/GestionUsuarios"
+import SolicitudOperaciones from "./paginas/opciones/SolicitudOperaciones"
+import Urgencias from "./paginas/opciones/Urgencias"
+import Me from "./paginas/Me"
 
 import { AuthProvider } from "./context/AuthProvider"
 import RutaProtegida from "./layouts/RutaProtegida"
+
 
 function App() {
     return (
@@ -19,7 +26,29 @@ function App() {
                         </Route>
 
                         <Route path="/user" element={<RutaProtegida />}>
-                            <Route index element={<User />} />
+                            <Route element={<User />}>
+                                <Route path="me" index element={<Me/>}/>
+                                <Route
+                                    path="solicitudoperaciones"
+                                    element={<SolicitudOperaciones />}
+                                />
+                                <Route
+                                    path="gestionusuarios"
+                                    element={<GestionUsuarios />}
+                                />
+                                <Route
+                                    path="urgencias"
+                                    element={<Urgencias />}
+                                />
+                                <Route
+                                    path="consultarestado"
+                                    element={<ConsultarEstado />}
+                                />
+                                <Route
+                                    path="gestionpacientes"
+                                    element={<GestionPaciente />}
+                                />
+                            </Route>
                         </Route>
                     </Routes>
                 </AuthProvider>
