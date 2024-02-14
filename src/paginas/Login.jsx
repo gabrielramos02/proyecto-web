@@ -35,7 +35,7 @@ const Login = () => {
             setAlert({})
             localStorage.setItem("access_token", data.access_token)
             setAuth(data)
-            navigate("/user/me")
+            window.location.reload()
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,

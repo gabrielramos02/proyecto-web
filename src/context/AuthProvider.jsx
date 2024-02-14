@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
                 navigate("/user/me")
             } catch (error) {
                 setAuth({})
+                localStorage.clear()
             } finally {
                 setCargando(false)
             }

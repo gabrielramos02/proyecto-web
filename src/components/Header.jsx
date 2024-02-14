@@ -1,4 +1,10 @@
 const Header = () => {
+    const cerrarSesion = (e) => {
+        e.preventDefault()
+        localStorage.clear()
+        window.location.reload()
+    }
+
     return (
         <header className="px-4 py-5 bg-white border-b">
             <div className="md:flex md:justify-between">
@@ -8,8 +14,12 @@ const Header = () => {
                 <button
                     type="button"
                     className="place-self-center text-semi text-xl font-bold hover:underline"
+                    onClick={cerrarSesion}
                 >
-                    Cerrar <span className="text-sky-600">Sesion</span>
+                    Cerrar{" "}
+                    <span className="text-sky-600">
+                        Sesion
+                    </span>
                 </button>
             </div>
         </header>

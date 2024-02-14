@@ -1,10 +1,11 @@
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
 
 const Medico = () => {
     return (
         <div>
-            
+            <h1 className="text-4xl font-black">Pagina principal</h1>
+
+
+        
         </div>
     )
 }
