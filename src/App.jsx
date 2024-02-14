@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-
 import AuthLayout from "./layouts/AuthLayout"
 
 import Login from "./paginas/Login"
@@ -19,8 +18,8 @@ function App() {
                             <Route index element={<Login />} />
                         </Route>
 
-                        <Route path="/user" element={<RutaProtegida/>}>
-                            <Route index element={<User/>}/>
+                        <Route path="/user" element={<RutaProtegida />}>
+                            <Route index element={<User />} />
                         </Route>
                     </Routes>
                 </AuthProvider>
