@@ -40,6 +40,7 @@ const SolicitudOperaciones = () => {
             })
         }
     }
+    // TODO: Implementar
     const handleSubmit = (e) => {
         e.preventDefault()
         return
@@ -105,15 +106,22 @@ const SolicitudOperaciones = () => {
     }
 
     return (
-        <BuscarHistoria
-            value={[
-                msg,
-                alert,
-                handleSearch,
-                historiaClinica,
-                setHistoriaClinica,
-            ]}
-        />
+        <div className="container md:flex md:justify-center min-w-screen">
+            <div className="w-full md:flex md:justify-center md:flex-col">
+                <h1 className="text-4xl font-black text-center">
+                    Busqueda por Historia Clinica
+                </h1>
+                <BuscarHistoria
+                    value={[
+                        msg,
+                        alert,
+                        handleSearch,
+                        historiaClinica,
+                        setHistoriaClinica,
+                    ]}
+                />
+            </div>
+        </div>
     )
 }
 export default SolicitudOperaciones

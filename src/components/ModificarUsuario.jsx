@@ -1,5 +1,10 @@
 import React from "react"
 const ModificarUsuario = () => {
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+  
+      }
+  
     return (
         <div className="min-w-96 md:ml-10 md:w-2/5">
             <h2 className="text-3xl font-black text-center">
@@ -7,7 +12,7 @@ const ModificarUsuario = () => {
             </h2>
             <form
                 className="my-10 bg-white shadow rounded-lg px-10 py-5"
-                // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
             >
                 <div className="my-5">
                     <label

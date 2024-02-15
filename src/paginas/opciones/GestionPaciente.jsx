@@ -1,4 +1,9 @@
 const GestionPaciente = () => {
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+
+  }
+
     return (
         <div className="container md:flex md:justify-center min-w-screen">
             <div className="w-full md:flex md:justify-center md:flex-col">
@@ -12,7 +17,7 @@ const GestionPaciente = () => {
                     </div>
                     <form
                         className="min-w-96 my-10 bg-white shadow rounded-lg px-10 py-5 lg:w-3/5"
-                        // onSubmit={handleSearch}
+                        onSubmit={handleSubmit}
                     >
                         <div className="mb-5">
                             <input

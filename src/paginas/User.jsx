@@ -1,4 +1,3 @@
-
 import Director from "./Director"
 import Medico from "./Medico"
 import { Outlet, Navigate } from "react-router-dom"
