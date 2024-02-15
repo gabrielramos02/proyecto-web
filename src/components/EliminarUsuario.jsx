@@ -3,11 +3,11 @@ import { useState } from "react"
 const EliminarUsuario = () => {
     const [username, setUsername] = useState("")
     return (
-        <div>
+        <div className="md:flex md:flex-col md:items-center">
             <h2 className="font-black text-3xl text-center">
                 Eliminar Usuario
             </h2>
-            <div>
+            <div className="md:w-3/5">
                 <form className="bg-white my-10 px-5 py-5 rounded-xl">
                     <label className="uppercase text-gray-600 block text-md font-bold">
                         Username

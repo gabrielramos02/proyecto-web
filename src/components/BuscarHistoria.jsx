@@ -5,12 +5,6 @@ const BuscarHistoria = ({ value }) => {
         value
 
     return (
-        <div className="container md:flex md:justify-center min-w-screen">
-            <div className="w-full md:flex md:justify-center md:flex-col">
-                <h1 className="text-4xl font-black text-center">
-                    Solicitud Operaciones
-                </h1>
-
                 <div className="md:flex md:flex-col md:items-center">
                     <div className="block w-3/5">
                         {msg && <Alert alert={alert} />}
@@ -38,8 +32,6 @@ const BuscarHistoria = ({ value }) => {
                         ></input>
                     </form>
                 </div>
-            </div>
-        </div>
     )
 }
 export default BuscarHistoria

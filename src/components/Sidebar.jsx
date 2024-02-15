@@ -34,6 +34,14 @@ const SideBar = ({ value }) => {
                     Solicitud Operacion
                 </Link>
             )}
+            {auth.role === "medico" && (
+                <Link
+                    to="./operacionrealizada"
+                    className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
+                >
+                    Operacion Realizada
+                </Link>
+            )}
 
             {auth.role !== "recepcionista" && (
                 <Link
@@ -50,6 +58,14 @@ const SideBar = ({ value }) => {
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
                 >
                     Consultar Estado
+                </Link>
+            )}
+            {auth.role === "medico" && (
+                <Link
+                    to="./urgencias"
+                    className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
+                >
+                    Urgencias
                 </Link>
             )}
         </aside>

@@ -13,6 +13,7 @@ import Me from "./paginas/Me"
 
 import { AuthProvider } from "./context/AuthProvider"
 import RutaProtegida from "./layouts/RutaProtegida"
+import OperacionRealizada from "./paginas/opciones/OperacionRealizada"
 
 function App() {
     return (
@@ -46,6 +47,10 @@ function App() {
                                 <Route
                                     path="gestionpaciente"
                                     element={<GestionPaciente />}
+                                />
+                                <Route
+                                    path="operacionrealizada"
+                                    element={<OperacionRealizada />}
                                 />
                             </Route>
                         </Route>
