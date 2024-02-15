@@ -2,6 +2,11 @@ import React from "react"
 import { useState } from "react"
 const EliminarUsuario = () => {
     const [username, setUsername] = useState("")
+    const handleSubmit = (e)=>{
+      e.preventDefault()
+
+    }
+
     return (
         <div className="md:flex md:flex-col md:items-center">
             <h2 className="font-black text-3xl text-center">
@@ -21,6 +26,7 @@ const EliminarUsuario = () => {
                         type="submit"
                         value="Eliminar Usuario"
                         className="bg-red-600 w-full  py-2 text-white uppercase text-bold rounded-md hover:bg-red-700 hover:cursor-pointer transition-colors mb-5 mt-5"
+                        onClick={handleSubmit}
                     ></input>
                 </form>
             </div>
