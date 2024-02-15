@@ -40,6 +40,10 @@ const SolicitudOperaciones = () => {
             })
         }
     }
+    const handleSubmit = (e)=>{
+      e.preventDefault()
+      return
+    }
     const { msg } = alert
 
     if (paciente.id) {
@@ -56,7 +60,7 @@ const SolicitudOperaciones = () => {
                         </div>
                         <form
                             className="my-10 bg-white shadow rounded-lg px-10 py-5 w-3/5"
-                            onSubmit={handleSearch}
+                            onSubmit={handleSubmit}
                         >
                             <div className="mb-5 w-full rounded-xl p-3 text-center bg-sky-600 text-white font-semibold uppercase">
                                 Paciente: {paciente.name}
@@ -64,7 +68,7 @@ const SolicitudOperaciones = () => {
 
                             <div className="mb-5">
                                 <input
-                                    id="clasificacion"
+                                    id="tiempoEstimado"
                                     type="text"
                                     placeholder="Tiempo Estimado"
                                     className="w-full p-3 border rounded-xl bg-gray-50"
@@ -74,9 +78,17 @@ const SolicitudOperaciones = () => {
                                     }
                                 ></input>
                             </div>
+                            <div className="md:flex md:justify-between mb-5 border py-3 px-2 rounded-xl">
+                                <label className="font-semibold uppercase">Clasificacion:</label>
+                                <select className="w-1/2 font-semibold uppercase text-center">
+                                    <option></option>
+                                    <option className="font-semibold">Prioritarias</option>
+                                    <option className="font-semibold">Regulares</option>
+                                </select>
+                            </div>
                             <input
                                 type="submit"
-                                value="Buscar Paciente"
+                                value="Agregar Solicitud"
                                 className="bg-sky-600 w-full py-3 text-white uppercase font-bold rounded-md hover:bg-sky-700 hover:cursor-pointer transition-colors"
                             ></input>
                         </form>

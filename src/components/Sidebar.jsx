@@ -32,10 +32,19 @@ const SideBar = () => {
 
             {auth.role !== "recepcionista" && (
                 <Link
-                    to=""
+                    to="./gestionpaciente"
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
                 >
                     Baja Paciente
+                </Link>
+            )}
+
+            {auth.role === "director" && (
+                <Link
+                    to="./consultarestado"
+                    className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
+                >
+                    Consultar Estado
                 </Link>
             )}
         </aside>
