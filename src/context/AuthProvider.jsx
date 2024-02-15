@@ -2,7 +2,6 @@ import { useState, useEffect, createContext } from "react"
 import clienteAxios from "../config/clienteAxios"
 import { useNavigate } from "react-router-dom"
 
-
 const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
@@ -41,7 +40,7 @@ const AuthProvider = ({ children }) => {
             value={{
                 auth,
                 setAuth,
-                cargando
+                cargando,
             }}
         >
             {children}

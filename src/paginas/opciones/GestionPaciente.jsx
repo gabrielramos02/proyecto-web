@@ -1,8 +1,6 @@
-
-
 const GestionPaciente = () => {
-  return (
-    <div className="container md:flex md:justify-center min-w-screen">
+    return (
+        <div className="container md:flex md:justify-center min-w-screen">
             <div className="w-full md:flex md:justify-center md:flex-col">
                 <h1 className="text-4xl font-black text-center">
                     Baja Paciente
@@ -13,7 +11,7 @@ const GestionPaciente = () => {
                         {/* {msg && <Alert alert={alert} />} */}
                     </div>
                     <form
-                        className="my-10 bg-white shadow rounded-lg px-10 py-5 w-3/5"
+                        className="min-w-96 my-10 bg-white shadow rounded-lg px-10 py-5 lg:w-3/5"
                         // onSubmit={handleSearch}
                     >
                         <div className="mb-5">
@@ -24,7 +22,7 @@ const GestionPaciente = () => {
                                 className="w-full p-3 border rounded-xl bg-gray-50"
                                 // value={historiaClinica}
                                 // onChange={(e) =>
-                                    // setHistoriaClinica(e.target.value)
+                                // setHistoriaClinica(e.target.value)
                                 // }
                             ></input>
                         </div>
@@ -37,6 +35,6 @@ const GestionPaciente = () => {
                 </div>
             </div>
         </div>
-  )
+    )
 }
 export default GestionPaciente

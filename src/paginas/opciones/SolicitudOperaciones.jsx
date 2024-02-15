@@ -40,9 +40,9 @@ const SolicitudOperaciones = () => {
             })
         }
     }
-    const handleSubmit = (e)=>{
-      e.preventDefault()
-      return
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        return
     }
     const { msg } = alert
 
@@ -79,11 +79,17 @@ const SolicitudOperaciones = () => {
                                 ></input>
                             </div>
                             <div className="md:flex md:justify-between mb-5 border py-3 px-2 rounded-xl">
-                                <label className="font-semibold uppercase">Clasificacion:</label>
+                                <label className="font-semibold uppercase">
+                                    Clasificacion:
+                                </label>
                                 <select className="w-1/2 font-semibold uppercase text-center">
                                     <option></option>
-                                    <option className="font-semibold">Prioritarias</option>
-                                    <option className="font-semibold">Regulares</option>
+                                    <option className="font-semibold">
+                                        Prioritarias
+                                    </option>
+                                    <option className="font-semibold">
+                                        Regulares
+                                    </option>
                                 </select>
                             </div>
                             <input

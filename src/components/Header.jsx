@@ -16,10 +16,7 @@ const Header = () => {
                     className="place-self-center text-semi text-xl font-bold hover:underline"
                     onClick={cerrarSesion}
                 >
-                    Cerrar{" "}
-                    <span className="text-sky-600">
-                        Sesion
-                    </span>
+                    Cerrar <span className="text-sky-600">Sesion</span>
                 </button>
             </div>
         </header>

@@ -14,7 +14,6 @@ import Me from "./paginas/Me"
 import { AuthProvider } from "./context/AuthProvider"
 import RutaProtegida from "./layouts/RutaProtegida"
 
-
 function App() {
     return (
         <div className="App">
@@ -27,7 +26,7 @@ function App() {
 
                         <Route path="/user" element={<RutaProtegida />}>
                             <Route element={<User />}>
-                                <Route path="me" index element={<Me/>}/>
+                                <Route path="me" index element={<Me />} />
                                 <Route
                                     path="solicitudoperaciones"
                                     element={<SolicitudOperaciones />}
