@@ -2,8 +2,8 @@ import React from 'react'
 
 const CrearUsuario = () => {
   return (
-    <div className="mr-10">
-      <h2 className="text-3xl text-left font-black">Crear Usuario</h2>
+    <div className="md:mr-10 md:w-2/5">
+      <h2 className="text-3xl text-center font-black">Crear Usuario</h2>
       <form
                 className="my-10 bg-white shadow rounded-lg px-10 py-5"
                 // onSubmit={handleSubmit}

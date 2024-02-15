@@ -45,7 +45,7 @@ function App() {
                                     element={<ConsultarEstado />}
                                 />
                                 <Route
-                                    path="gestionpacientes"
+                                    path="gestionpaciente"
                                     element={<GestionPaciente />}
                                 />
                             </Route>

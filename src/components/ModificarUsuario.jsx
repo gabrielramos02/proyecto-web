@@ -2,7 +2,7 @@ import React from 'react'
 const ModificarUsuario = () => {
 
   return (
-    <div className="ml-10">
+    <div className="md:ml-10 md:w-2/5">
     <h2 className="text-3xl font-black text-center">Modificar Usuario</h2>
     <form
               className="my-10 bg-white shadow rounded-lg px-10 py-5"
