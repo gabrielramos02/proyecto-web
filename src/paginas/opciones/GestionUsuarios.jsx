@@ -1,5 +1,6 @@
 import CrearUsuario from "../../components/CrearUsuario"
 import ModificarUsuario from "../../components/ModificarUsuario"
+import EliminarUsuario from "../../components/EliminarUsuario"
 const GestionUsuarios = () => {
 
   return (
@@ -8,6 +9,9 @@ const GestionUsuarios = () => {
       <div className="flex mt-3">
       <CrearUsuario/>
        <ModificarUsuario/>
+      </div>
+      <div>
+        <EliminarUsuario/>
       </div>
     </div>
   )
