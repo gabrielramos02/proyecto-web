@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
 import useAuth from "../hooks/useAuth"
 
-const SideBar = () => {
+const SideBar = ({ value }) => {
     const { auth } = useAuth()
+    const [isOpen] = value
     return (
-        <aside className="min-w-72 w-1/2 md:w-80 lg:w-96 px-5 py-10">
+        <aside
+            className={`min-w-72 w-1/2 md:w-80 lg:w-96 px-5 py-10 ${
+                isOpen ? "" : "hidden"
+            }  `}
+        >
             <p className="text-xl font-bold">Hola: {auth.username} </p>
 
             <Link
