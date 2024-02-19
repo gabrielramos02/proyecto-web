@@ -10,7 +10,7 @@ const Recepcionista = () => {
     const [cama, setCama] = useState("")
     const [sala, setSala] = useState("")
     const [alert, setAlert] = useState({})
-    //TODO: implementar
+ 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const access_token = localStorage.getItem("access_token")
