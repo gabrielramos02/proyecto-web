@@ -27,6 +27,7 @@ const EliminarUsuario = () => {
                 }
             )
             setAlert({ msg: "Usuario Eliminado", error: false })
+            setUsername("")
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
