@@ -5,8 +5,9 @@ import BuscarHistoria from "../../components/BuscarHistoria"
 
 const SolicitudOperaciones = () => {
     const [historiaClinica, setHistoriaClinica] = useState("")
-
     const [paciente, setPaciente] = useState({})
+    const [tiempoEstimado, setTiempoEstimado] = useState("")
+    const [clasificacion, setClasificacion] = useState("")
 
     const [alert, setAlert] = useState({})
 
@@ -30,7 +31,7 @@ const SolicitudOperaciones = () => {
                     },
                 }
             )
-            setAlert({ msg: "Usuario Encontrado", error: false })
+            setAlert({ msg: "Paciente Encontrado", error: false })
             setPaciente(data)
             setHistoriaClinica("")
         } catch (error) {
@@ -41,9 +42,37 @@ const SolicitudOperaciones = () => {
         }
     }
     // TODO: Implementar
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        return
+        const access_token = localStorage.getItem("access_token")
+        if ([clasificacion, tiempoEstimado].includes("")) {
+            setAlert({
+                msg: "Todos los campos son obligatorios",
+                error: true,
+            })
+            return
+        }
+        try {
+            const { data } = await clienteAxios.post(
+                `/operacion/addoperacion/${String(paciente.id)}`,
+                { clasificacion, "tiempo_duracion_estimado":tiempoEstimado },
+                {
+                    headers: {
+                        accept: "application/json",
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                }
+            )
+            setAlert({ msg: "Operacion Agregada", error: false })
+            setClasificacion("")
+            setTiempoEstimado("")
+        } catch (error) {
+            setAlert({
+                msg: error.response.data.detail,
+                error: true,
+            })
+        }
     }
     const { msg } = alert
 
@@ -73,9 +102,9 @@ const SolicitudOperaciones = () => {
                                     type="text"
                                     placeholder="Tiempo Estimado"
                                     className="w-full p-3 border rounded-xl bg-gray-50"
-                                    value={historiaClinica}
+                                    value={tiempoEstimado}
                                     onChange={(e) =>
-                                        setHistoriaClinica(e.target.value)
+                                        setTiempoEstimado(e.target.value)
                                     }
                                 ></input>
                             </div>
@@ -83,13 +112,25 @@ const SolicitudOperaciones = () => {
                                 <label className="font-semibold uppercase">
                                     Clasificacion:
                                 </label>
-                                <select className="w-1/2 font-semibold uppercase text-center">
-                                    <option></option>
-                                    <option className="font-semibold">
-                                        Prioritarias
+                                <select
+                                    className="w-1/2 font-semibold uppercase text-center"
+                                    defaultValue={clasificacion}
+                                    onChange={(e) =>
+                                        setClasificacion(e.target.value)
+                                    }
+                                >
+                                    <option value={""}></option>
+                                    <option
+                                        className="font-semibold"
+                                        value={"prioritaria"}
+                                    >
+                                        Prioritaria
                                     </option>
-                                    <option className="font-semibold">
-                                        Regulares
+                                    <option
+                                        className="font-semibold"
+                                        value={"regular"}
+                                    >
+                                        Regular
                                     </option>
                                 </select>
                             </div>
