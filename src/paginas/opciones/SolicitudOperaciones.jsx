@@ -22,7 +22,7 @@ const SolicitudOperaciones = () => {
         }
         try {
             const { data } = await clienteAxios(
-                `/paciente/${historiaClinica}`,
+                `/paciente/busqueda/${historiaClinica}`,
                 {
                     headers: {
                         "Content-Type": "application/json",

@@ -21,7 +21,7 @@ const GestionPaciente = () => {
         }
         try {
             const { data } = await clienteAxios.put(
-                `/paciente/${historiaClinica}`,{},
+                `/paciente/busqueda/${historiaClinica}`,{},
                 {
                     headers: {
                         accept: "application/json",
