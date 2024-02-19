@@ -1,5 +1,6 @@
 import React from "react"
 const ModificarUsuario = () => {
+    //TODO: implementar 
     const handleSubmit = (e)=>{
         e.preventDefault()
   
@@ -62,16 +63,7 @@ const ModificarUsuario = () => {
                         //onChange={(e) => setPassword(e.target.value)}
                     ></input>
                 </div>
-                <div className="my-5">
-                    <label className="uppercase text-gray-600 block text-md font-bold">
-                        Rol
-                    </label>
-                    <select className="w-full mt-3 p-2 rounded-xl bg-gray-50">
-                        <option></option>
-                        <option>Medico</option>
-                        <option>Recepcionista</option>
-                    </select>
-                </div>
+                
                 <input
                     type="submit"
                     value="Modificar Usuario"

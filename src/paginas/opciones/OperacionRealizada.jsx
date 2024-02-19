@@ -7,20 +7,21 @@ import Operacion from "../../components/Operacion"
 const OperacionRealizada = () => {
     const [operacion, setOperacion] = useState({})
 
-    const[prueba,setPrueba] = useState(true)
+    const [prueba, setPrueba] = useState(true)
 
     const [alert, setAlert] = useState({})
-
+    //TODO: implementar
     const handleOperacion = async (e) => {
         e.preventDefault()
         setPrueba(!prueba)
     }
+    //TODO: implementar
     const handleSubmit = async (e) => {
         e.preventDefault()
         setPrueba(!prueba)
     }
     const { msg } = alert
-    
+
     if (prueba) {
         return (
             <div className="container md:flex md:justify-center min-w-screen">

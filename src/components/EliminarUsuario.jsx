@@ -2,6 +2,7 @@ import React from "react"
 import { useState } from "react"
 const EliminarUsuario = () => {
     const [username, setUsername] = useState("")
+    //TODO: implementar
     const handleSubmit = (e) => {
         e.preventDefault()
     }

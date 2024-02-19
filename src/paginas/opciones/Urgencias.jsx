@@ -1,10 +1,12 @@
+import { useState } from "react"
+
 const Urgencias = () => {
-
-    const handleSubmit = (e)=>{
-      e.preventDefault()
-
+    //TODO: implementar
+    const [name,setName] = useState("")
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
     }
-
 
     return (
         <div className="md:flex md:justify-center">

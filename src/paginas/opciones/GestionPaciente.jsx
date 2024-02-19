@@ -1,8 +1,8 @@
 const GestionPaciente = () => {
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-
-  }
+    //TODO: implementar
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
 
     return (
         <div className="container md:flex md:justify-center min-w-screen">
