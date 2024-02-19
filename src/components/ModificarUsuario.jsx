@@ -3,7 +3,6 @@ import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 
 const ModificarUsuario = () => {
-    //TODO: implementar
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConf, setPasswordConf] = useState("")
@@ -39,6 +38,9 @@ const ModificarUsuario = () => {
                 }
             )
             setAlert({ msg: "Usuario Actualizado", error: false })
+            setUsername("")
+            setPassword("")
+            setPasswordConf("")
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,

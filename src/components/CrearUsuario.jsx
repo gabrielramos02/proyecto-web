@@ -39,6 +39,10 @@ const CrearUsuario = () => {
                 }
             )
             setAlert({ msg: "Usuario Agregado", error: false })
+            setUsername("")
+            setPassword("")
+            setPasswordConf("")
+            setRole("")
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
