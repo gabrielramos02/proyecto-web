@@ -3,7 +3,6 @@ import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 
 const CrearUsuario = () => {
-    //TODO: implementar
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConf, setPasswordConf] = useState("")
