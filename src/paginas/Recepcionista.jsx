@@ -1,7 +1,12 @@
 import { useState } from "react"
 import Alert from "../components/Alert"
 import clienteAxios from "../config/clienteAxios"
-
+import {
+    validarNombre,
+    validarApellidos,
+    validarHistoriaClinica,
+    validarCamaSala,
+} from "../utils/regEx"
 
 const Recepcionista = () => {
     const [name, setName] = useState("")
@@ -10,7 +15,7 @@ const Recepcionista = () => {
     const [cama, setCama] = useState("")
     const [sala, setSala] = useState("")
     const [alert, setAlert] = useState({})
- 
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         const access_token = localStorage.getItem("access_token")
@@ -21,8 +26,22 @@ const Recepcionista = () => {
             })
             return
         }
-        try {
+        if (
+            validarNombre(name) &&
+            validarApellidos(surname) &&
+            validarHistoriaClinica(historia_clinica) &&
+            validarCamaSala(cama) &&
+            validarCamaSala(sala)
+        ) {
             
+        } else {
+            setAlert({
+                msg: "Introduzca los datos correctamente",
+                error: true,
+            })
+            return
+        }
+        try {
             const { data } = await clienteAxios.post(
                 `/paciente/`,
                 { name, surname, historia_clinica, cama, sala },
@@ -33,7 +52,7 @@ const Recepcionista = () => {
                     },
                 }
             )
-            
+
             setAlert({ msg: "Paciente Agregado", error: false })
             setName("")
             setSurname("")
