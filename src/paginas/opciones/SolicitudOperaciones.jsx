@@ -67,6 +67,7 @@ const SolicitudOperaciones = () => {
             setAlert({ msg: "Operacion Agregada", error: false })
             setClasificacion("")
             setTiempoEstimado("")
+            setPaciente({})
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,

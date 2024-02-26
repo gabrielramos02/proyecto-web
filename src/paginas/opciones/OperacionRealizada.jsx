@@ -6,23 +6,77 @@ import Operacion from "../../components/Operacion"
 
 const OperacionRealizada = () => {
     const [operacion, setOperacion] = useState({})
-
-    const [prueba, setPrueba] = useState(true)
+    const [operaciones, setOperaciones] = useState([])
+    const [tiempoReal, setTiempoReal] = useState("")
+    const [descripcion, setDescripcion] = useState("")
 
     const [alert, setAlert] = useState({})
-    //TODO: implementar
-    const handleOperacion = async (e) => {
-        e.preventDefault()
-        setPrueba(!prueba)
-    }
+
+    useEffect(() => {
+        const getOperaciones = async () => {
+            const access_token = localStorage.getItem("access_token")
+            try {
+                const { data } = await clienteAxios("/operacion/me", {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                })
+                setOperaciones(data)
+            } catch (error) {
+                setAlert({
+                    msg: error.response.data.detail,
+                    error: true,
+                })
+            }
+        }
+        getOperaciones()
+    },[tiempoReal])
+
     //TODO: implementar
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setPrueba(!prueba)
+        const access_token = localStorage.getItem("access_token")
+        if ([tiempoReal, descripcion].includes("")) {
+            setAlert({
+                msg: "Todos los campos son obligatorios",
+                error: true,
+            })
+            return
+        }
+        try {
+            const { data } = await clienteAxios.post(
+                `/operacion/operacionrealizada/${operacion.id}/`,
+                {
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                    params:{
+                        tiempo_real:tiempoReal,
+                        descripcion
+                    }
+                }
+            )
+            setAlert({ msg: "Operaracion Realizada", error: false })
+            setOperacion("")
+            setOperaciones([])
+            setTiempoReal("")
+            setDescripcion("")
+            console.log(data)
+        } catch (error) {
+            setAlert({
+                msg: error.response.data.detail,
+                error: true,
+            })
+            console.log(error.response.data.detail)
+        }
     }
     const { msg } = alert
 
-    if (prueba) {
+    if (operacion.id) {
         return (
             <div className="container md:flex md:justify-center min-w-screen">
                 <div className="w-full md:flex md:flex-col">
@@ -42,10 +96,21 @@ const OperacionRealizada = () => {
                                 Operacion
                             </h1>
                             <div className="border font-semibold rounded-md bg-gray-50 w-full text-xl mb-5 px-3">
-                                <p className="py-1">Nombre del Paciente:</p>
-                                <p className="py-1">Apellidos del Paciente:</p>
-                                <p className="py-1">Tiempo Estimado:</p>
-                                <p className="py-1">Clasificacion:</p>
+                                <p className="py-1">
+                                    Nombre del Paciente:{" "}
+                                    {operacion.paciente.name}
+                                </p>
+                                <p className="py-1">
+                                    Apellidos del Paciente:{" "}
+                                    {operacion.paciente.surname}
+                                </p>
+                                <p className="py-1">
+                                    Tiempo Estimado:{" "}
+                                    {operacion.tiempo_duracion_estimado}{" "}
+                                </p>
+                                <p className="py-1">
+                                    Clasificacion: {operacion.clasificacion}{" "}
+                                </p>
                             </div>
 
                             <div className="mb-5">
@@ -54,10 +119,10 @@ const OperacionRealizada = () => {
                                     type="text"
                                     placeholder="Tiempo Real"
                                     className="w-full p-3 border rounded-xl bg-gray-50"
-                                    // value={historiaClinica}
-                                    // onChange={(e) =>
-                                    // setHistoriaClinica(e.target.value)
-                                    // }
+                                    value={tiempoReal}
+                                    onChange={(e) =>
+                                        setTiempoReal(e.target.value)
+                                    }
                                 ></input>
                             </div>
                             <div className="mb-5">
@@ -66,10 +131,10 @@ const OperacionRealizada = () => {
                                     type="text"
                                     placeholder="Descripcion"
                                     className="w-full p-3 border rounded-xl bg-gray-50"
-                                    // value={historiaClinica}
-                                    // onChange={(e) =>
-                                    // setHistoriaClinica(e.target.value)
-                                    // }
+                                    value={descripcion}
+                                    onChange={(e) =>
+                                        setDescripcion(e.target.value)
+                                    }
                                 ></textarea>
                             </div>
 
@@ -88,11 +153,34 @@ const OperacionRealizada = () => {
     return (
         <div className="container md:flex md:justify-center min-w-screen">
             <div className="w-full md:flex md:justify-center md:flex-col">
-                <h1 className="text-4xl font-black text-center">
-                    Operaciones por Realizar
-                </h1>
-                <div>
-                    <Operacion value={[handleOperacion, operacion]} />
+                {operaciones && operaciones.length ? (
+                    <>
+                        {" "}
+                        <h1 className="text-4xl font-black text-center">
+                            Operaciones por Realizar
+                        </h1>
+                    </>
+                ) : (
+                    <>
+                        <h1 className="text-4xl font-black text-center">
+                            No hay Operaciones
+                        </h1>
+                    </>
+                )}
+                <div className="md:flex md:flex-row md:flex-wrap md:justify-center">
+                    {operaciones.map((operacion) => {
+                        return (
+                            <Operacion
+                                key={operacion.id}
+                                name={operacion.paciente.name}
+                                surname={operacion.paciente.surname}
+                                tiempo={operacion.tiempo_duracion_estimado}
+                                clasificacion={operacion.clasificacion}
+                                setOperacion={setOperacion}
+                                operacion={operacion}
+                            />
+                        )
+                    })}
                 </div>
             </div>
         </div>
