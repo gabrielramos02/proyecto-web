@@ -116,7 +116,7 @@ const OperacionRealizada = () => {
                             <div className="mb-5">
                                 <input
                                     id="tiempoReal"
-                                    type="text"
+                                    type="time"
                                     placeholder="Tiempo Real"
                                     className="w-full p-3 border rounded-xl bg-gray-50"
                                     value={tiempoReal}

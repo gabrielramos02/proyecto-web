@@ -100,7 +100,7 @@ const SolicitudOperaciones = () => {
                             <div className="mb-5">
                                 <input
                                     id="tiempoEstimado"
-                                    type="text"
+                                    type="time"
                                     placeholder="Tiempo Estimado"
                                     className="w-full p-3 border rounded-xl bg-gray-50"
                                     value={tiempoEstimado}
