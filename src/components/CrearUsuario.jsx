@@ -1,14 +1,60 @@
-import React from "react"
+import { useState } from "react"
+import Alert from "./Alert"
+import clienteAxios from "../config/clienteAxios"
 
 const CrearUsuario = () => {
-    const handleSubmit = (e)=>{
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [passwordConf, setPasswordConf] = useState("")
+    const [role, setRole] = useState("")
+
+    const [alert, setAlert] = useState({})
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-  
-      }
-  
+        const access_token = localStorage.getItem("access_token")
+        if ([username, password, password, role].includes("")) {
+            setAlert({
+                msg: "Todos los campos son obligatorios",
+                error: true,
+            })
+            return
+        }
+        if (password !== passwordConf) {
+            setAlert({
+                msg: "Las contrase;as deben coindicir",
+                error: true,
+            })
+            return
+        }
+        try {
+            const { data } = await clienteAxios.post(
+                `/user/`,
+                { username, password, role},
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                }
+            )
+            setAlert({ msg: "Usuario Agregado", error: false })
+            setUsername("")
+            setPassword("")
+            setPasswordConf("")
+            setRole("")
+        } catch (error) {
+            setAlert({
+                msg: error.response.data.detail,
+                error: true,
+            })
+        }
+    }
+    const { msg } = alert
     return (
         <div className="min-w-96 md:mr-10 md:w-2/5">
             <h2 className="text-3xl text-center font-black">Crear Usuario</h2>
+            <div className="block w-full">{msg && <Alert alert={alert} />}</div>
             <form
                 className="my-10 bg-white shadow rounded-lg px-10 py-5"
                 onSubmit={handleSubmit}
@@ -16,59 +62,67 @@ const CrearUsuario = () => {
                 <div className="my-5">
                     <label
                         className="uppercase text-gray-600 block text-md font-bold"
-                        htmlFor="username"
+                        htmlFor="usernameCrear"
                     >
                         Username:
                     </label>
                     <input
-                        id="username"
+                        id="usernameCrear"
                         type="text"
                         placeholder="Username"
                         className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                        // value={username}
-                        // onChange={(e) => setUsername(e.target.value)}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     ></input>
                 </div>
                 <div className="my-5">
                     <label
                         className="uppercase text-gray-600 block text-md font-bold"
-                        htmlFor="password"
+                        htmlFor="passwordCrear"
                     >
                         Password:
                     </label>
                     <input
-                        id="password"
+                        id="passwordCrear"
                         type="password"
                         placeholder="Password"
                         className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                        // value={password}
-                        //onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     ></input>
                 </div>
                 <div className="my-5">
                     <label
                         className="uppercase text-gray-600 block text-md font-bold"
-                        htmlFor="password"
+                        htmlFor="passwordConfCrear"
                     >
                         Confirmar Password:
                     </label>
                     <input
-                        id="confirmarPass"
+                        id="passwordConfCrear"
                         type="password"
-                        placeholder="Password"
+                        placeholder="Confirmar Password"
                         className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                        // value={password}
-                        //onChange={(e) => setPassword(e.target.value)}
+                        value={passwordConf}
+                        onChange={(e) => setPasswordConf(e.target.value)}
                     ></input>
                 </div>
                 <div className="my-5">
-                    <label className="uppercase text-gray-600 block text-md font-bold">
+                    <label
+                        className="uppercase text-gray-600 block text-md font-bold"
+                        htmlFor="rolCrear"
+                    >
                         Rol
                     </label>
-                    <select className="w-full mt-3 p-2 rounded-xl bg-gray-50">
-                        <option></option>
-                        <option>Medico</option>
-                        <option>Recepcionista</option>
+                    <select
+                        id="rolCrear"
+                        className="w-full mt-3 p-2 rounded-xl bg-gray-50"
+                        defaultValue={role}
+                        onChange={(e) => setRole(e.target.value)}
+                    >
+                        <option value={""}></option>
+                        <option value={"medico"}>Medico</option>
+                        <option value={"recepcionista"}>Recepcionista</option>
                     </select>
                 </div>
                 <input

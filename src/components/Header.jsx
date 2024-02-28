@@ -16,7 +16,7 @@ const Header = ({ value }) => {
                         className="py-2 px-2 mt-2 bg-sky-600 text-white font-semibold rounded-md"
                         onClick={()=>setIsOpen(!isOpen)}
                     >
-                        Hide Sidebar
+                        Toggle Sidebar
                     </button>
                 </div>
                 <button

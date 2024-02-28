@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar"
 import { useState } from "react"
 
 const User = () => {
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <>
             <div className="bg-gray-100 ">
