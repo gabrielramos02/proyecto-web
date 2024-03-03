@@ -55,7 +55,54 @@ const ModificarUsuario = () => {
                 Modificar Usuario
             </h2>
             <div className="block w-full">{msg && <Alert alert={alert} />}</div>
-            <form
+            {true?<div className="min-w-96">
+            <div className="block w-full">{msg && <Alert alert={alert} />}</div>
+
+            <div className="container p-2 mx-auto sm:p-4 text-gray-100 md:flex md:justify-center">
+                <div className="overflow-x-auto rounded-lg shadow-lg">
+                    <table className="">
+                        <thead className="bg-sky-600">
+                            <tr className="text-left">
+                                <th className="p-3">username</th>
+                                <th className="p-3">enabled</th>
+                                <th className="p-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody className="text-black bg-white">
+                            {users.map((user) => {
+                                return (
+                                    <tr
+                                        className="border-b border-opacity-20"
+                                        key={user.id}
+                                    >
+                                        <td className="p-3">{user.username}</td>
+                                        <td className="p-3">
+                                            {user.enabled
+                                                ? "Habilitado"
+                                                : "Deshabilitado"}
+                                        </td>
+                                        <td className="p-3 text-right">
+                                            <button
+                                                className="px-3 py-1 font-semibold rounded-md bg-sky-600 text-white mx-2 hover:cursor-pointer"
+                                                onClick={() => editar(user)}
+                                            >
+                                                Editar
+                                            </button>
+                                            <button
+                                                className="px-3 py-1 font-semibold rounded-md bg-red-600 text-white mx-2 hover:cursor-pointer"
+                                                onClick={() => eliminar(user)}
+                                            >
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>:<form
                 className="my-10 bg-white shadow rounded-lg px-10 py-5"
                 onSubmit={handleSubmit}
             >
@@ -113,7 +160,8 @@ const ModificarUsuario = () => {
                     value="Modificar Usuario"
                     className="bg-sky-600 w-full py-2 text-white uppercase text-bold rounded-md hover:bg-sky-700 hover:cursor-pointer transition-colors mb-5 mt-5"
                 ></input>
-            </form>
+            </form>}
+            
         </div>
     )
 }
