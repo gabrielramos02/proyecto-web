@@ -11,9 +11,6 @@ const GestionUsuarios = () => {
                 <CrearUsuario />
                 <ModificarUsuario />
             </div>
-            <div>
-                <EliminarUsuario />
-            </div>
         </div>
     )
 }
