@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Alert from "../components/Alert"
 import clienteAxios from "../config/clienteAxios"
 import {
@@ -13,8 +13,31 @@ const Recepcionista = () => {
     const [surname, setSurname] = useState("")
     const [historia_clinica, setHistoriaClinica] = useState("")
     const [cama, setCama] = useState("")
-    const [sala, setSala] = useState("")
+    const [sala, setSala] = useState("1")
     const [alert, setAlert] = useState({})
+    const [camasSalas, setCamasSalas] = useState([])
+
+    useEffect(() => {
+        const getCamasSalas = async () => {
+            const access_token = localStorage.getItem("access_token")
+            try {
+                const { data } = await clienteAxios("/disponibilidad", {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                })
+                // data = data.filter(cama => cama)
+                setCamasSalas(data.filter((cama) => !cama.ocupada))
+            } catch (error) {
+                setAlert({
+                    msg: error.response.data.detail,
+                    error: true,
+                })
+            }
+        }
+        getCamasSalas()
+    }, [alert])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -33,7 +56,6 @@ const Recepcionista = () => {
             validarCamaSala(cama) &&
             validarCamaSala(sala)
         ) {
-            
         } else {
             setAlert({
                 msg: "Introduzca los datos correctamente",
@@ -152,14 +174,23 @@ const Recepcionista = () => {
                         >
                             Sala:
                         </label>
-                        <input
+                        <select
                             id="sala"
-                            type="text"
-                            placeholder="Sala"
-                            className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                            value={sala}
+                            className="w-full mt-3 p-2 rounded-xl bg-gray-50 border"
+                            defaultValue={sala}
                             onChange={(e) => setSala(e.target.value)}
-                        ></input>
+                        >
+                            <option value={"1"}>1</option>
+                            <option value={"2"}>2</option>
+                            <option value={"3"}>3</option>
+                            <option value={"4"}>4</option>
+                            <option value={"5"}>5</option>
+                            <option value={"6"}>6</option>
+                            <option value={"7"}>7</option>
+                            <option value={"8"}>8</option>
+                            <option value={"9"}>9</option>
+                            <option value={"10"}>10</option>
+                        </select>
                     </div>
                     <input
                         type="submit"
