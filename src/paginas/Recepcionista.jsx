@@ -7,7 +7,6 @@ import {
     validarHistoriaClinica,
     validarCamaSala,
 } from "../utils/regEx"
-import { i } from "vite/dist/node/types.d-jgA8ss1A"
 
 const Recepcionista = () => {
     const [name, setName] = useState("")
