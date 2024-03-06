@@ -2,8 +2,7 @@ import { useState, useEffect } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 
-const ModificarUsuario = ({value}) => {
-    const [cargar,SetCargar]= value
+const ModificarUsuario = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [users, setUsers] = useState([])
@@ -30,7 +29,7 @@ const ModificarUsuario = ({value}) => {
             }
         }
         getUsers()
-    }, [cargar])
+    }, [])
 
     const editar = async (username) => {
         setUsername(username)
@@ -50,7 +49,6 @@ const ModificarUsuario = ({value}) => {
             )
             setAlert({ msg: "Usuario Eliminado", error: false })
             setUsername("")
-            SetCargar(!cargar)
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
@@ -91,7 +89,6 @@ const ModificarUsuario = ({value}) => {
             setUsername("")
             setPassword("")
             setPasswordConf("")
-            SetCargar(!cargar)
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
@@ -114,7 +111,6 @@ const ModificarUsuario = ({value}) => {
                                 <thead className="bg-sky-600">
                                     <tr className="text-left">
                                         <th className="p-3">username</th>
-                                        <th className="p-3">rol</th>
                                         <th className="p-3">enabled</th>
                                         <th className="p-3">Status</th>
                                     </tr>
@@ -128,9 +124,6 @@ const ModificarUsuario = ({value}) => {
                                             >
                                                 <td className="p-3">
                                                     {user.username}
-                                                </td>
-                                                <td className="p-3">
-                                                    {user.role}
                                                 </td>
                                                 <td className="p-3">
                                                     {user.enabled
