@@ -2,7 +2,8 @@ import { useState, useEffect } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 
-const ModificarUsuario = () => {
+const ModificarUsuario = ({value}) => {
+    const [cargar,SetCargar]= value
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [users, setUsers] = useState([])
@@ -29,7 +30,7 @@ const ModificarUsuario = () => {
             }
         }
         getUsers()
-    }, [])
+    }, [cargar])
 
     const editar = async (username) => {
         setUsername(username)
@@ -49,6 +50,7 @@ const ModificarUsuario = () => {
             )
             setAlert({ msg: "Usuario Eliminado", error: false })
             setUsername("")
+            SetCargar(!cargar)
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
@@ -89,6 +91,7 @@ const ModificarUsuario = () => {
             setUsername("")
             setPassword("")
             setPasswordConf("")
+            SetCargar(!cargar)
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
@@ -111,6 +114,7 @@ const ModificarUsuario = () => {
                                 <thead className="bg-sky-600">
                                     <tr className="text-left">
                                         <th className="p-3">username</th>
+                                        <th className="p-3">rol</th>
                                         <th className="p-3">enabled</th>
                                         <th className="p-3">Status</th>
                                     </tr>
@@ -124,6 +128,9 @@ const ModificarUsuario = () => {
                                             >
                                                 <td className="p-3">
                                                     {user.username}
+                                                </td>
+                                                <td className="p-3">
+                                                    {user.role}
                                                 </td>
                                                 <td className="p-3">
                                                     {user.enabled
