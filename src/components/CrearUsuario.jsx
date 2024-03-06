@@ -2,8 +2,7 @@ import { useState } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 
-const CrearUsuario = ({value}) => {
-    const [cargar,SetCargar]= value
+const CrearUsuario = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConf, setPasswordConf] = useState("")
@@ -44,7 +43,6 @@ const CrearUsuario = ({value}) => {
             setPassword("")
             setPasswordConf("")
             setRole("")
-            SetCargar(!cargar)
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
