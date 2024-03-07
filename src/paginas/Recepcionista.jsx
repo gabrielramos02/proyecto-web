@@ -80,7 +80,7 @@ const Recepcionista = () => {
             setSurname("")
             setHistoriaClinica("")
             setCama("")
-            setSala("")
+            setSala("1")
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
@@ -151,22 +151,7 @@ const Recepcionista = () => {
                             onChange={(e) => setHistoriaClinica(e.target.value)}
                         ></input>
                     </div>
-                    <div className="my-5">
-                        <label
-                            className="uppercase text-gray-600 block text-md font-bold"
-                            htmlFor="cama"
-                        >
-                            Cama:
-                        </label>
-                        <input
-                            id="cama"
-                            type="text"
-                            placeholder="Cama"
-                            className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                            value={cama}
-                            onChange={(e) => setCama(e.target.value)}
-                        ></input>
-                    </div>
+
                     <div className="my-5">
                         <label
                             className="uppercase text-gray-600 block text-md font-bold"
@@ -190,6 +175,29 @@ const Recepcionista = () => {
                             <option value={"8"}>8</option>
                             <option value={"9"}>9</option>
                             <option value={"10"}>10</option>
+                        </select>
+                    </div>
+                    <div className="my-5">
+                        <label
+                            className="uppercase text-gray-600 block text-md font-bold"
+                            htmlFor="cama"
+                        >
+                            Cama:
+                        </label>
+                        <select
+                            id="cama"
+                            className="w-full mt-3 p-2 rounded-xl bg-gray-50 border"
+                            defaultValue={cama}
+                            onChange={(e) => setCama(e.target.value)}
+                        >
+                            <option value={cama}></option>
+                            {camasSalas.filter((cama)=>cama.sala.numero === sala).map((cama) => {
+                                return (
+                                    <option value={cama.numero} key={cama.id}>
+                                                {cama.numero}
+                                            </option>
+                                )
+                            })}
                         </select>
                     </div>
                     <input
