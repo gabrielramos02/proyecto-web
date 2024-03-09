@@ -1,7 +1,9 @@
 import CrearUsuario from "../../components/CrearUsuario"
-import ModificarUsuario from "../../components/ModificarUsuario"
+import ModificarUsuario from "../../components/ListaUsuarios"
 import EliminarUsuario from "../../components/EliminarUsuario"
 import { useState } from "react"
+import { Link, Outlet } from "react-router-dom"
+
 const GestionUsuarios = () => {
     const[cargar,SetCargar]=useState(false)
     return (
@@ -10,9 +12,14 @@ const GestionUsuarios = () => {
                 Gestion de Usuario
             </h1>
             <div className="lg:flex lg:justify-center mt-3">
-                <CrearUsuario value={[cargar,SetCargar]}/>
-                <ModificarUsuario value={[cargar,SetCargar]}/>
+                <Outlet/>
             </div>
+            <Link
+                to="./crearusuario"
+                className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
+            >
+                Inicio
+            </Link>
         </div>
     )
 }
