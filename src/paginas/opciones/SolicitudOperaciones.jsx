@@ -41,7 +41,7 @@ const SolicitudOperaciones = () => {
             })
         }
     }
-    // TODO: Implementar
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         const access_token = localStorage.getItem("access_token")

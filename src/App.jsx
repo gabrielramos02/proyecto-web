@@ -14,6 +14,9 @@ import Me from "./paginas/Me"
 import { AuthProvider } from "./context/AuthProvider"
 import RutaProtegida from "./layouts/RutaProtegida"
 import OperacionRealizada from "./paginas/opciones/OperacionRealizada"
+import ModificarUsuario from "./components/ListaUsuarios"
+import CrearUsuario from "./components/CrearUsuario"
+import EditarUsuario from "./components/EditarUsuario"
 
 function App() {
     return (
@@ -35,7 +38,11 @@ function App() {
                                 <Route
                                     path="gestionusuarios"
                                     element={<GestionUsuarios />}
-                                />
+                                >
+                                    <Route index path="" element={<ModificarUsuario/>}/>
+                                    <Route path="crearusuario" element={<CrearUsuario/>}/>
+                                    <Route path="editarusuario/:id" element={<EditarUsuario/>}/>
+                                </Route>
                                 <Route
                                     path="urgencias"
                                     element={<Urgencias />}
