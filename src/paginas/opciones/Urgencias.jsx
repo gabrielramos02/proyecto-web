@@ -1,12 +1,57 @@
 import { useState } from "react"
+import clienteAxios from "../../config/clienteAxios"
+import Alert from "../../components/Alert"
 
 const Urgencias = () => {
-    //TODO: implementar
-    const [name,setName] = useState("")
-    
-    const handleSubmit = (e) => {
+
+    const [name, setName] = useState("")
+    const [surname, setSurname] = useState("")
+    const [tiempoEstimado, setTiempoEstimado] = useState("")
+
+    const [alert, setAlert] = useState({})
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        const access_token = localStorage.getItem("access_token")
+        if ([name, surname, tiempoEstimado].includes("")) {
+            setAlert({
+                msg: "Todos los campos son obligatorios",
+                error: true,
+            })
+            return
+        }
+        const payload = {
+            operacion: {
+                clasificacion: "urgencia",
+                tiempo_duracion_estimado: tiempoEstimado,
+            },
+            paciente_form: { name, surname },
+        }
+        try {
+            const { data } = await clienteAxios.post(
+                `/operacion/urgencia`,
+                payload,
+                {
+                    headers: {
+                        accept: "application/json",
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                }
+            )
+            setAlert({ msg: "Operacion Agregadad", error: false })
+            setName("")
+            setSurname("")
+            setTiempoEstimado("")
+        } catch (error) {
+            setAlert({
+                msg: error.response.data.detail,
+                error: true,
+            })
+        }
     }
+
+    const { msg } = alert
 
     return (
         <div className="md:flex md:justify-center">
@@ -14,6 +59,9 @@ const Urgencias = () => {
                 <h2 className="text-3xl text-center font-black">
                     Agregar Urgencia
                 </h2>
+                <div className="block w-full">
+                    {msg && <Alert alert={alert} />}
+                </div>
                 <form
                     className="my-10 bg-white shadow rounded-lg px-10 py-5"
                     onSubmit={handleSubmit}
@@ -27,8 +75,8 @@ const Urgencias = () => {
                             type="text"
                             placeholder="Nombre del Paciente"
                             className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                            // value={username}
-                            // onChange={(e) => setUsername(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         ></input>
                     </div>
                     <div className="my-5">
@@ -40,8 +88,8 @@ const Urgencias = () => {
                             type="text"
                             placeholder="Apellidos del Paciente"
                             className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                            // value={username}
-                            // onChange={(e) => setUsername(e.target.value)}
+                            value={surname}
+                            onChange={(e) => setSurname(e.target.value)}
                         ></input>
                     </div>
                     <div className="my-5">
@@ -50,11 +98,11 @@ const Urgencias = () => {
                         </label>
                         <input
                             id="tiempoEstimado"
-                            type="text"
+                            type="time"
                             placeholder="Tiempo Estimado"
                             className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
-                            // value={username}
-                            // onChange={(e) => setUsername(e.target.value)}
+                            value={tiempoEstimado}
+                            onChange={(e) => setTiempoEstimado(e.target.value)}
                         ></input>
                     </div>
                     <input
