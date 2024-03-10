@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import Alert from "../../components/Alert"
 import clienteAxios from "../../config/clienteAxios"
 import BuscarHistoria from "../../components/BuscarHistoria"
-
+// TODO:Arreglar Completo
 const SolicitudOperaciones = () => {
     const [historiaClinica, setHistoriaClinica] = useState("")
     const [paciente, setPaciente] = useState({})

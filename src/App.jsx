@@ -17,6 +17,7 @@ import OperacionRealizada from "./paginas/opciones/OperacionRealizada"
 import ModificarUsuario from "./components/ListaUsuarios"
 import CrearUsuario from "./components/CrearUsuario"
 import EditarUsuario from "./components/EditarUsuario"
+import ListaPacientes from "./components/ListaPacientes"
 
 function App() {
     return (
@@ -32,16 +33,22 @@ function App() {
                             <Route element={<User />}>
                                 <Route path="me" index element={<Me />} />
                                 <Route
-                                    path="solicitudoperaciones"
-                                    element={<SolicitudOperaciones />}
-                                />
-                                <Route
                                     path="gestionusuarios"
                                     element={<GestionUsuarios />}
                                 >
-                                    <Route index path="" element={<ModificarUsuario/>}/>
-                                    <Route path="crearusuario" element={<CrearUsuario/>}/>
-                                    <Route path="editarusuario/:id" element={<EditarUsuario/>}/>
+                                    <Route
+                                        index
+                                        path=""
+                                        element={<ModificarUsuario />}
+                                    />
+                                    <Route
+                                        path="crearusuario"
+                                        element={<CrearUsuario />}
+                                    />
+                                    <Route
+                                        path="editarusuario/:id"
+                                        element={<EditarUsuario />}
+                                    />
                                 </Route>
                                 <Route
                                     path="urgencias"
@@ -54,7 +61,16 @@ function App() {
                                 <Route
                                     path="gestionpaciente"
                                     element={<GestionPaciente />}
-                                />
+                                >
+                                    <Route
+                                        path=""
+                                        element={<ListaPacientes />}
+                                    />
+                                    <Route
+                                        path="solicitudoperacion/:historia_clinica"
+                                        element={<SolicitudOperaciones />}
+                                    />
+                                </Route>
                                 <Route
                                     path="operacionrealizada"
                                     element={<OperacionRealizada />}
