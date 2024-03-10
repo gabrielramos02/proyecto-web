@@ -16,7 +16,7 @@ const EditarUsuario = () => {
     useEffect(() => {
         setUsername(params.id)
     }, [])
-    // TODO: Alerta de contrase;a cambiada, arreglar flex
+    // TODO: Alerta de contrase;a cambiada
     const handleSubmit = async (e) => {
         e.preventDefault()
         const access_token = localStorage.getItem("access_token")
@@ -61,7 +61,7 @@ const EditarUsuario = () => {
     }
     const { msg } = alert
     return (
-        <>
+        <div>
             <div className="block w-full">{msg && <Alert alert={alert} />}</div>
             <form
                 className="my-10 bg-white shadow rounded-lg px-10 py-5"
@@ -111,7 +111,7 @@ const EditarUsuario = () => {
                     className="bg-sky-600 w-full py-2 text-white uppercase text-bold rounded-md hover:bg-sky-700 hover:cursor-pointer transition-colors mb-5 mt-5"
                 ></input>
             </form>
-        </>
+        </div>
     )
 }
 export default EditarUsuario

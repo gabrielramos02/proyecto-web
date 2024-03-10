@@ -14,12 +14,7 @@ const GestionUsuarios = () => {
             <div className="lg:flex lg:justify-center mt-3">
                 <Outlet/>
             </div>
-            <Link
-                to="./crearusuario"
-                className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-            >
-                Inicio
-            </Link>
+            
         </div>
     )
 }

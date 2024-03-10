@@ -1,13 +1,15 @@
 import { useState } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
-
+import { useNavigate } from "react-router-dom"
+// TODO: Agregar alerta cuando crea user
 const CrearUsuario = () => {
     const [cargar,SetCargar]= useState(true)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConf, setPasswordConf] = useState("")
     const [role, setRole] = useState("")
+    const navigate = useNavigate()
 
     const [alert, setAlert] = useState({})
 
@@ -45,6 +47,7 @@ const CrearUsuario = () => {
             setPasswordConf("")
             setRole("")
             SetCargar(!cargar)
+            navigate("../")
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,

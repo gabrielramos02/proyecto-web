@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const ModificarUsuario = () => {
     const [cargar, SetCargar] = useState(true)
@@ -74,7 +74,14 @@ const ModificarUsuario = () => {
                                     <th className="p-3">username</th>
                                     <th className="p-3">rol</th>
                                     <th className="p-3">enabled</th>
-                                    <th className="p-3">Status</th>
+                                    <th className="p-2">
+                                        <Link
+                                            to="./crearusuario"
+                                            className="bg-sky-700 hover:bg-sky-900 w-full p-1 text-white uppercase font-bold block text-center rounded-md"
+                                        >
+                                            Crear Usuario
+                                        </Link>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody className="text-black bg-white">

@@ -33,7 +33,7 @@ const OperacionRealizada = () => {
         getOperaciones()
     },[tiempoReal])
 
-    //TODO: implementar
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         const access_token = localStorage.getItem("access_token")
