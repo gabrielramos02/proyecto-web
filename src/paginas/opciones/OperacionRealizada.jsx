@@ -65,7 +65,6 @@ const OperacionRealizada = () => {
             setOperaciones([])
             setTiempoReal("")
             setDescripcion("")
-            console.log(data)
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
