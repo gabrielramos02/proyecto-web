@@ -28,22 +28,14 @@ const SideBar = ({ value }) => {
                     Gestion de Usuario
                 </Link>
             )}
-            {auth.role === "medico" && (
-                <Link
-                    to="./solicitudoperaciones"
-                    className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-                    onClick={()=>setIsOpen(false)}
-                >
-                    Solicitud Operacion
-                </Link>
-            )}
+            
             {auth.role === "medico" && (
                 <Link
                     to="./operacionrealizada"
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
                     onClick={()=>setIsOpen(false)}
                 >
-                    Operacion Realizada
+                    Gestion de Operacion
                 </Link>
             )}
 
