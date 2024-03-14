@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 import { useNavigate, useParams } from "react-router-dom"
+import { validarPassword } from "../utils/regEx"
 
 const EditarUsuario = () => {
     const [cargar, SetCargar] = useState(true)
@@ -23,6 +24,16 @@ const EditarUsuario = () => {
         if ([password, passwordConf].includes("")) {
             setAlert({
                 msg: "Todos los campos son obligatorios",
+                error: true,
+            })
+            return
+        }
+        if(validarPassword(password)){
+
+        }
+        else{
+            setAlert({
+                msg: "El password debe tener mas de 8 caracteres sin espacio",
                 error: true,
             })
             return

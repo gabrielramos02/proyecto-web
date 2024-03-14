@@ -2,6 +2,8 @@ import { useState } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 import { useNavigate } from "react-router-dom"
+import { validarPassword, validarUsername } from "../utils/regEx"
+
 // TODO: Agregar alerta cuando crea user
 const CrearUsuario = () => {
     const [cargar,SetCargar]= useState(true)
@@ -19,6 +21,26 @@ const CrearUsuario = () => {
         if ([username, password, password, role].includes("")) {
             setAlert({
                 msg: "Todos los campos son obligatorios",
+                error: true,
+            })
+            return
+        }
+        
+        if(validarUsername(username)){
+        }
+        else{
+            setAlert({
+                msg: "El usuario no es valido",
+                error: true,
+            })
+            return
+        }
+
+        if(validarPassword(password)){
+        }
+        else{
+            setAlert({
+                msg: "El password debe tener mas de 8 caracteres sin espacio",
                 error: true,
             })
             return
@@ -55,6 +77,7 @@ const CrearUsuario = () => {
             })
         }
     }
+    
     const { msg } = alert
     return (
         <div className="min-w-96 md:mr-10 md:w-2/5">

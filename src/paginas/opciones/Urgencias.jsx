@@ -1,6 +1,7 @@
 import { useState } from "react"
 import clienteAxios from "../../config/clienteAxios"
 import Alert from "../../components/Alert"
+import { validarApellidos, validarNombre } from "../../utils/regEx"
 
 const Urgencias = () => {
 
@@ -16,6 +17,14 @@ const Urgencias = () => {
         if ([name, surname, tiempoEstimado].includes("")) {
             setAlert({
                 msg: "Todos los campos son obligatorios",
+                error: true,
+            })
+            return
+        }
+        if(validarNombre(name) && validarApellidos(surname)){
+        }else{
+            setAlert({
+                msg: "El nombre o el apellido es incorrecto",
                 error: true,
             })
             return

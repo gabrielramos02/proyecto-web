@@ -77,9 +77,12 @@ const ModificarUsuario = () => {
                                     <th className="p-2">
                                         <Link
                                             to="./crearusuario"
-                                            className="bg-sky-700 hover:bg-sky-900 w-full p-1 text-white uppercase font-bold block text-center rounded-md"
+                                            className=" hover:bg-sky-700 w-full p-1 text-white uppercase font-bold block text-center rounded-md"
                                         >
-                                            Crear Usuario
+                                            <img 
+                                            src="/src/iconos/add-user(1).png"
+                                            className="h-10 p-1 w-10 rounded-md mx-auto hover:bg-sky-700 justify-center"
+                                            ></img>
                                         </Link>
                                     </th>
                                 </tr>
@@ -101,24 +104,28 @@ const ModificarUsuario = () => {
                                                     : "Deshabilitado"}
                                             </td>
                                             <td className="p-3 text-right">
-                                                <button
-                                                    className="px-3 py-1 font-semibold rounded-md bg-sky-600 text-white mx-2 hover:cursor-pointer"
+                                            <div className="flex gap-3 justify-center">
+                                                <img
+                                                    src="/src/iconos/edit.png"
+                                                    className="p-1 h-10 w-10 bg-blue-300 hover:bg-blue-500 rounded-md"
                                                     onClick={() =>
                                                         editar(user.username)
                                                     }
                                                 >
-                                                    Editar
-                                                </button>
-                                                <button
-                                                    className="px-3 py-1 font-semibold rounded-md bg-red-600 text-white mx-2 hover:cursor-pointer"
+                                                </img>
+                                                <img
+                                                    src="/src/iconos/delete.png"
+                                                    className="p-1 h-10 w-10 bg-red-400 hover:bg-red-600 rounded-md"
                                                     onClick={() =>
                                                         eliminar(user.username)
                                                     }
                                                 >
-                                                    Eliminar
-                                                </button>
+                                                </img>
+                                                </div>
                                             </td>
+                                        
                                         </tr>
+                                    
                                     )
                                 })}
                             </tbody>

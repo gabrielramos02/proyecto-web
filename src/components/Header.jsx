@@ -19,13 +19,15 @@ const Header = ({ value }) => {
                         Toggle Sidebar
                     </button>
                 </div>
-                <button
-                    type="button"
-                    className="place-self-center text-semi text-xl font-bold hover:underline"
+                <div className="flex flex-row items-center">
+                <img
+                    
+                    src="/src/iconos/log-out.png"
+                    className="h-12 w-12 bg-sky-500 hover:bg-sky-700 p-1 rounded-md"
                     onClick={cerrarSesion}
                 >
-                    Cerrar <span className="text-sky-600">Sesion</span>
-                </button>
+                </img>
+                </div>
             </div>
         </header>
     )
