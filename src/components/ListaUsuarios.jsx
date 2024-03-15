@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import Alert from "./Alert"
 import clienteAxios from "../config/clienteAxios"
 import { Link, useNavigate } from "react-router-dom"
+import dele from "/src/iconos/delete.png"
+import edit from "/src/iconos/edit.png"
+import addu from "/src/iconos/add-u.png"
 
 const ModificarUsuario = () => {
     const [cargar, SetCargar] = useState(true)
@@ -80,7 +83,7 @@ const ModificarUsuario = () => {
                                             className=" hover:bg-sky-700 w-full p-1 text-white uppercase font-bold block text-center rounded-md"
                                         >
                                             <img 
-                                            src="/src/iconos/add-user(1).png"
+                                            src={addu}
                                             className="h-10 p-1 w-10 rounded-md mx-auto hover:bg-sky-700 justify-center"
                                             ></img>
                                         </Link>
@@ -106,7 +109,7 @@ const ModificarUsuario = () => {
                                             <td className="p-3 text-right">
                                             <div className="flex gap-3 justify-center">
                                                 <img
-                                                    src="/src/iconos/edit.png"
+                                                    src={edit}
                                                     className="p-1 h-10 w-10 bg-blue-300 hover:bg-blue-500 rounded-md"
                                                     onClick={() =>
                                                         editar(user.username)
@@ -114,7 +117,7 @@ const ModificarUsuario = () => {
                                                 >
                                                 </img>
                                                 <img
-                                                    src="/src/iconos/delete.png"
+                                                    src={dele}
                                                     className="p-1 h-10 w-10 bg-red-400 hover:bg-red-600 rounded-md"
                                                     onClick={() =>
                                                         eliminar(user.username)

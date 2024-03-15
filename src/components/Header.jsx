@@ -1,3 +1,5 @@
+import logt from "/src/iconos/log-out.png"
+
 const Header = ({ value }) => {
     const cerrarSesion = (e) => {
         e.preventDefault()
@@ -22,7 +24,7 @@ const Header = ({ value }) => {
                 <div className="flex flex-row items-center">
                 <img
                     
-                    src="/src/iconos/log-out.png"
+                    src={logt}
                     className="h-12 w-12 bg-sky-500 hover:bg-sky-700 p-1 rounded-md"
                     onClick={cerrarSesion}
                 >

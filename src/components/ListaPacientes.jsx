@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import Alert from "./Alert"
 import { useEffect, useState } from "react"
 import clienteAxios from "../config/clienteAxios"
+import docs from "/src/iconos/documents.png"
 
 const ListaPacientes = () => {
     const [cargar, SetCargar] = useState(true)
@@ -192,7 +193,7 @@ const ListaPacientes = () => {
                                                         <div className="flex gap-3 justify-center">
                                                         <td className="p-3 text-right flex flex-row gap-3">
                                                             <img
-                                                                src="/src/iconos/documents.png"
+                                                                src={docs}
                                                                 className="h-10 p-1 w-10 rounded-md hover:cursor-pointer bg-blue-300 hover:bg-blue-500"
                                                                 onClick={() =>
                                                                     solicitudOperacion(
