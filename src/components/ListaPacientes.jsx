@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import Alert from "./Alert"
 import { useEffect, useState } from "react"
 import clienteAxios from "../config/clienteAxios"
+import docs from "/src/iconos/documents.png"
 
 const ListaPacientes = () => {
     const [cargar, SetCargar] = useState(true)
@@ -104,7 +105,7 @@ const ListaPacientes = () => {
                                                             }}
                                                             className="hover:bg-sky-700"
                                                         >
-                                                            Siguente
+                                                            Anterior
                                                         </button>
                                                     </div>
                                                     <p className="w-1/3">
@@ -130,7 +131,7 @@ const ListaPacientes = () => {
                                                                 }
                                                             }}
                                                         >
-                                                            Siguente
+                                                            Siguiente
                                                         </button>
                                                     </div>
                                                 </div>
@@ -189,29 +190,33 @@ const ListaPacientes = () => {
                                                                 paciente.fecha_ingreso
                                                             }
                                                         </td>
-                                                        <td className="p-3 text-right">
-                                                            <button
-                                                                className="px-3 py-1 font-semibold rounded-md bg-sky-600 text-white mx-2 hover:cursor-pointer block mb-1.5"
+                                                        <div className="flex gap-3 justify-center">
+                                                        <td className="p-3 text-right flex flex-row gap-3">
+                                                            <img
+                                                                src={docs}
+                                                                className="h-10 p-1 w-10 rounded-md hover:cursor-pointer bg-blue-300 hover:bg-blue-500"
                                                                 onClick={() =>
                                                                     solicitudOperacion(
                                                                         paciente.historia_clinica
                                                                     )
                                                                 }
                                                             >
-                                                                Solicitud de
-                                                                Operacion
-                                                            </button>
-                                                            <button
-                                                                className="px-3 py-1 font-semibold rounded-md bg-red-600 text-white mx-2 hover:cursor-pointer block"
+                                                          
+                                                            </img>
+                                                            <img
+                                                                className="w-10 h-10 rounded-md p-1 bg-red-300 hover:bg-red-600"
+                                                                src="/src/iconos/delete.png"
                                                                 onClick={() =>
                                                                     eliminar(
                                                                         paciente.historia_clinica
                                                                     )
                                                                 }
                                                             >
-                                                                Dar de Baja
-                                                            </button>
+                                                           
+                                                            </img>
+                                                           
                                                         </td>
+                                                        </div>
                                                     </tr>
                                                 )
                                             })}
