@@ -25,7 +25,7 @@ const Header = ({ value }) => {
                 <img
                     
                     src={logt}
-                    className="h-12 w-12 bg-sky-500 hover:bg-sky-700 p-1 rounded-md"
+                    className="h-12 w-12 p-1 rounded-md"
                     onClick={cerrarSesion}
                 >
                 </img>
