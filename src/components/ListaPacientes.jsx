@@ -3,6 +3,7 @@ import Alert from "./Alert"
 import { useEffect, useState } from "react"
 import clienteAxios from "../config/clienteAxios"
 import docs from "/src/iconos/documents.png"
+import dele from "/src/iconos/delete.png"
 
 const ListaPacientes = () => {
     const [cargar, SetCargar] = useState(true)
@@ -205,7 +206,7 @@ const ListaPacientes = () => {
                                                             </img>
                                                             <img
                                                                 className="w-10 h-10 rounded-md p-1 bg-red-300 hover:bg-red-600"
-                                                                src="/src/iconos/delete.png"
+                                                                src={dele}
                                                                 onClick={() =>
                                                                     eliminar(
                                                                         paciente.historia_clinica
