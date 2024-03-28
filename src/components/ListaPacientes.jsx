@@ -37,15 +37,15 @@ const ListaPacientes = () => {
         getPacientes()
     }, [cargar])
 
-    const solicitudOperacion = async (historia_clinica) => {
-        navigate(`./solicitudoperacion/${historia_clinica}`)
+    const solicitudOperacion = async (id) => {
+        navigate(`./solicitudoperacion/${id}`)
     }
 
-    const eliminar = async (historia_clinica) => {
+    const eliminar = async (id) => {
         const access_token = localStorage.getItem("access_token")
         try {
             const { data } = await clienteAxios.put(
-                `/paciente/busqueda/${historia_clinica}`,
+                `/paciente/${id}`,
                 {},
                 {
                     headers: {
@@ -198,7 +198,7 @@ const ListaPacientes = () => {
                                                                 className="h-10 p-1 w-10 rounded-md hover:cursor-pointer bg-blue-300 hover:bg-blue-500"
                                                                 onClick={() =>
                                                                     solicitudOperacion(
-                                                                        paciente.historia_clinica
+                                                                        paciente.id
                                                                     )
                                                                 }
                                                             >
@@ -209,7 +209,7 @@ const ListaPacientes = () => {
                                                                 src={dele}
                                                                 onClick={() =>
                                                                     eliminar(
-                                                                        paciente.historia_clinica
+                                                                        paciente.id
                                                                     )
                                                                 }
                                                             >

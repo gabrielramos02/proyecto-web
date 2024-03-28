@@ -16,7 +16,7 @@ const SolicitudOperaciones = () => {
         const getPaciente = async () => {
             const access_token = localStorage.getItem("access_token")
             try {
-                const { data } = await clienteAxios(`/paciente/busqueda/${params.historia_clinica}`, {
+                const { data } = await clienteAxios(`/paciente/${params.id}`, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${access_token}`,
