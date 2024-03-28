@@ -65,6 +65,7 @@ const OperacionRealizada = () => {
             setOperaciones([])
             setTiempoReal("")
             setDescripcion("")
+            window.location.reload()
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,
@@ -139,7 +140,7 @@ const OperacionRealizada = () => {
 
                             <input
                                 type="submit"
-                                value="Agregar Solicitud"
+                                value="Operacion Realizada"
                                 className="bg-sky-600 w-full py-3 text-white uppercase font-bold rounded-md hover:bg-sky-700 hover:cursor-pointer transition-colors"
                             ></input>
                         </form>
