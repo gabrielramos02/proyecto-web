@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import Alert from "../../components/Alert"
 import clienteAxios from "../../config/clienteAxios"
-import BuscarHistoria from "../../components/BuscarHistoria"
 import { useParams } from "react-router-dom"
 
 const SolicitudOperaciones = () => {
@@ -60,6 +59,7 @@ const SolicitudOperaciones = () => {
             setClasificacion("")
             setTiempoEstimado("")
             setPaciente({})
+            window.location.reload()
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,

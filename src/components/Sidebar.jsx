@@ -15,7 +15,7 @@ const SideBar = ({ value }) => {
             <Link
                 to="./me"
                 className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-                onClick={()=>setIsOpen(false)}
+                onClick={() => setIsOpen(false)}
             >
                 Inicio
             </Link>
@@ -23,17 +23,17 @@ const SideBar = ({ value }) => {
                 <Link
                     to="./gestionusuarios"
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-                    onClick={()=>setIsOpen(false)}
+                    onClick={() => setIsOpen(false)}
                 >
                     Gestion de Usuario
                 </Link>
             )}
-            
+
             {auth.role === "medico" && (
                 <Link
                     to="./operacionrealizada"
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-                    onClick={()=>setIsOpen(false)}
+                    onClick={() => setIsOpen(false)}
                 >
                     Gestion de Operacion
                 </Link>
@@ -43,26 +43,16 @@ const SideBar = ({ value }) => {
                 <Link
                     to="./gestionpaciente"
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-                    onClick={()=>setIsOpen(false)}
+                    onClick={() => setIsOpen(false)}
                 >
                     Gestion Paciente
-                </Link>
-            )}
-
-            {auth.role === "director" && (
-                <Link
-                    to="./consultarestado"
-                    className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-                    onClick={()=>setIsOpen(false)}
-                >
-                    Consultar Estado
                 </Link>
             )}
             {auth.role === "medico" && (
                 <Link
                     to="./urgencias"
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
-                    onClick={()=>setIsOpen(false)}
+                    onClick={() => setIsOpen(false)}
                 >
                     Urgencias
                 </Link>

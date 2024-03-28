@@ -5,7 +5,6 @@ import RutaProtegida from "./layouts/RutaProtegida"
 
 import Login from "./paginas/Login"
 import User from "./paginas/User"
-import ConsultarEstado from "./paginas/opciones/ConsultarEstado"
 import GestionPaciente from "./paginas/opciones/GestionPaciente"
 import GestionUsuarios from "./paginas/opciones/GestionUsuarios"
 import SolicitudOperaciones from "./paginas/opciones/SolicitudOperaciones"
@@ -55,10 +54,7 @@ function App() {
                                     path="urgencias"
                                     element={<Urgencias />}
                                 />
-                                <Route
-                                    path="consultarestado"
-                                    element={<ConsultarEstado />}
-                                />
+                                
                                 <Route
                                     path="gestionpaciente"
                                     element={<GestionPaciente />}

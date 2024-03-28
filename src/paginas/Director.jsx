@@ -7,7 +7,7 @@ import Ocupacion from "../components/Ocupacion"
 const Director = () => {
     const [operaciones, setOperaciones] = useState([])
     const [operacionesUrgencia, setOperacionesUrgencia] = useState([])
-    const [camasSalas,setCamasSalas] = useState([])
+    const [camasSalas, setCamasSalas] = useState([])
 
     useEffect(() => {
         const getOperaciones = async () => {
@@ -47,39 +47,61 @@ const Director = () => {
         }
         getOperacionesUrgencia()
         const getCamasSalas = async () => {
-          const access_token = localStorage.getItem("access_token")
-          try {
-              const { data } = await clienteAxios("/ocupacion", {
-                  headers: {
-                      "Content-Type": "application/json",
-                      Authorization: `Bearer ${access_token}`,
-                  },
-              })
-              // data = data.filter(cama => cama)
-              setCamasSalas(data)
-          } catch (error) {
-              setAlert({
-                  msg: error.response.data.detail,
-                  error: true,
-              })
-          }
-      }
-      getCamasSalas()
+            const access_token = localStorage.getItem("access_token")
+            try {
+                const { data } = await clienteAxios("/ocupacion", {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${access_token}`,
+                    },
+                })
+                // data = data.filter(cama => cama)
+                setCamasSalas(data)
+            } catch (error) {
+                setAlert({
+                    msg: error.response.data.detail,
+                    error: true,
+                })
+            }
+        }
+        getCamasSalas()
     }, [])
 
     return (
         <div>
             <h1 className="text-4xl font-black">Pagina principal</h1>
-            <ListaOperaciones
-                key={"operaciones"}
-                operaciones={operaciones}
-                setOperaciones={setOperaciones}
-            />
-            <ListaOperacionesUrgencias
-                key={"urgencia"}
-                operacionesUrgencia={operacionesUrgencia}
-                setOperacionesUrgencia={setOperacionesUrgencia}
-            />
+            {operaciones.length ? (
+                <>
+                    <ListaOperaciones
+                        key={"operaciones"}
+                        operaciones={operaciones}
+                        setOperaciones={setOperaciones}
+                    />
+                </>
+            ) : (
+                <>
+                    <h1 className="text-4xl font-black text-center m-11">
+                        No hay Operaciones Planificadas
+                    </h1>
+                </>
+            )}
+            {operacionesUrgencia.length ? (
+                <>
+                    <ListaOperacionesUrgencias
+                        key={"urgencia"}
+                        operacionesUrgencia={operacionesUrgencia}
+                        setOperacionesUrgencia={setOperacionesUrgencia}
+                    />
+                </>
+            ) : (
+                <>
+                    <h1 className="text-4xl font-black text-center m-11">
+                        No hay Operaciones De Urgencia Realizadas En El Ultimo
+                        Mes
+                    </h1>
+                </>
+            )}
+
             <Ocupacion camasSalas={camasSalas} setCamasSala={setCamasSalas} />
         </div>
     )
