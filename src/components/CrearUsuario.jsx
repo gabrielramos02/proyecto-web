@@ -40,7 +40,7 @@ const CrearUsuario = () => {
         }
         else{
             setAlert({
-                msg: "El password debe tener mas de 8 caracteres sin espacio",
+                msg: "El password debe cumplir los requisitos minimos de seguridad, combinaciones alfanumericas, caracteres especiales y 8 caracteres minimo",
                 error: true,
             })
             return

@@ -49,7 +49,7 @@ const SideBar = ({ value }) => {
                 </Link>
             )}
 
-            {auth.role === "director" && (
+             {auth.role === "director" && (
                 <Link
                     to="./consultarestado"
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
