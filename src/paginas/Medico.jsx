@@ -29,11 +29,21 @@ const Medico = () => {
     return (
         <div>
             <h1 className="text-4xl font-black">Pagina principal</h1>
-            <ListaOperaciones
-                key={operaciones.length}
-                operaciones={operaciones}
-                setOperaciones={setOperaciones}
-            />
+            {operaciones.length ? (
+                <>
+                    <ListaOperaciones
+                        key={operaciones.length}
+                        operaciones={operaciones}
+                        setOperaciones={setOperaciones}
+                    />
+                </>
+            ) : (
+                <>
+                    <h1 className="text-4xl font-black text-center">
+                        No hay Operaciones Planificadas
+                    </h1>
+                </>
+            )}
         </div>
     )
 }

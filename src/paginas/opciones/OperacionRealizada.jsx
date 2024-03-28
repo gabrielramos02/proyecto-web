@@ -65,6 +65,7 @@ const OperacionRealizada = () => {
             setOperaciones([])
             setTiempoReal("")
             setDescripcion("")
+            window.location.reload()
         } catch (error) {
             setAlert({
                 msg: error.response.data.detail,

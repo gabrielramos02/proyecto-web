@@ -1,19 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 import AuthLayout from "./layouts/AuthLayout"
+import RutaProtegida from "./layouts/RutaProtegida"
 
 import Login from "./paginas/Login"
 import User from "./paginas/User"
-import ConsultarEstado from "./paginas/opciones/ConsultarEstado"
 import GestionPaciente from "./paginas/opciones/GestionPaciente"
 import GestionUsuarios from "./paginas/opciones/GestionUsuarios"
 import SolicitudOperaciones from "./paginas/opciones/SolicitudOperaciones"
 import Urgencias from "./paginas/opciones/Urgencias"
 import Me from "./paginas/Me"
+import OperacionRealizada from "./paginas/opciones/OperacionRealizada"
 
 import { AuthProvider } from "./context/AuthProvider"
-import RutaProtegida from "./layouts/RutaProtegida"
-import OperacionRealizada from "./paginas/opciones/OperacionRealizada"
+
 import ModificarUsuario from "./components/ListaUsuarios"
 import CrearUsuario from "./components/CrearUsuario"
 import EditarUsuario from "./components/EditarUsuario"
@@ -54,10 +54,7 @@ function App() {
                                     path="urgencias"
                                     element={<Urgencias />}
                                 />
-                                <Route
-                                    path="consultarestado"
-                                    element={<ConsultarEstado />}
-                                />
+                                
                                 <Route
                                     path="gestionpaciente"
                                     element={<GestionPaciente />}
@@ -67,7 +64,7 @@ function App() {
                                         element={<ListaPacientes />}
                                     />
                                     <Route
-                                        path="solicitudoperacion/:historia_clinica"
+                                        path="solicitudoperacion/:id"
                                         element={<SolicitudOperaciones />}
                                     />
                                 </Route>

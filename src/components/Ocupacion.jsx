@@ -2,8 +2,8 @@ import { Line, LineChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 const Ocupacion = ({ camasSalas, setCamasSalas }) => {
     return (
-        <div>
-            <h1 className="text-4xl font-black text-center">
+        <div className="container flex flex-col items-center">
+            <h1 className="text-4xl font-black text-center mb-10">
                 Estadisticas de Ocupacion
             </h1>
             <LineChart
@@ -15,7 +15,7 @@ const Ocupacion = ({ camasSalas, setCamasSalas }) => {
                 <Line type="monotone" dataKey="ocupacion" stroke="#8884d8" />
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                 <XAxis dataKey="sala" label={"Salas"}/>
-                <YAxis height={10}/>
+                <YAxis height={10} allowDecimals={false} label={{ value: 'Camas', angle: -90, position: 'insideLeft' }}/>
             </LineChart>
         </div>
     )
