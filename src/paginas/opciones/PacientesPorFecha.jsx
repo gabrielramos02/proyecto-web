@@ -42,7 +42,6 @@ const PacientesPorFecha = () => {
                                 <table className="w-full">
                                     <thead className="bg-sky-600">
                                         <tr className="text-left">
-                                            <th className="p-3">Nro Cama</th>
                                             <th className="p-3">Nombre</th>
                                             <th className="p-3">Apellidos</th>
                                             <th className="p-3">
@@ -61,22 +60,16 @@ const PacientesPorFecha = () => {
                                                     key={paciente.id}
                                                 >
                                                     <td className="p-3">
-                                                        {paciente.cama.numero ==
-                                                        "vacia"
-                                                            ? "urgencia"
-                                                            : paciente.cama
-                                                                  .numero}
-                                                    </td>
-                                                    <td className="p-3">
                                                         {paciente.name}
                                                     </td>
                                                     <td className="p-3">
                                                         {paciente.surname}
                                                     </td>
                                                     <td className="p-3">
-                                                        {
-                                                            paciente.historia_clinica
-                                                        }
+                                                        {paciente.historia_clinica ===
+                                                        null
+                                                            ? "Urgencia"
+                                                            : paciente.historia_clinica}
                                                     </td>
                                                     <td className="p-3">
                                                         {paciente.fecha_ingreso}
