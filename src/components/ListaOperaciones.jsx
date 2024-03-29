@@ -3,7 +3,7 @@ const ListaOperaciones = ({ operaciones, setOperaciones }) => {
     return (
         <div>
             <h1 className="text-4xl font-black text-center">
-                Lista Operaciones
+                Operaciones Planificadas
             </h1>
             <div className="container p-2 mx-auto sm:p-4 text-gray-100 md:flex md:justify-center">
                 <div className="overflow-x-auto rounded-lg shadow-lg w-full">

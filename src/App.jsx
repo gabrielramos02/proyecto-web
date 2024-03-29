@@ -18,6 +18,7 @@ import ModificarUsuario from "./components/ListaUsuarios"
 import CrearUsuario from "./components/CrearUsuario"
 import EditarUsuario from "./components/EditarUsuario"
 import ListaPacientes from "./components/ListaPacientes"
+import PacientesPorFecha from "./paginas/opciones/PacientesPorFecha"
 
 function App() {
     return (
@@ -72,6 +73,8 @@ function App() {
                                     path="operacionrealizada"
                                     element={<OperacionRealizada />}
                                 />
+                                <Route path="pacientesporfecha/:fechainicio/:fechafin"
+                                    element={<PacientesPorFecha/>}/> 
                             </Route>
                         </Route>
                     </Routes>
