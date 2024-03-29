@@ -3,6 +3,8 @@ import ListaOperaciones from "../components/ListaOperaciones"
 import clienteAxios from "../config/clienteAxios"
 import ListaOperacionesUrgencias from "../components/ListaOperacionesUrgencias"
 import Ocupacion from "../components/Ocupacion"
+import { Link } from "react-router-dom"
+import busc from "/src/iconos/loupe.png"
 
 const Director = () => {
     const [operaciones, setOperaciones] = useState([])
@@ -69,7 +71,13 @@ const Director = () => {
 
     return (
         <div>
+            <div className="flex justify-between">
             <h1 className="text-4xl font-black">Pagina principal</h1>
+            <div className="flex-row">
+                <img src={busc} className="h-12 w-12 p-1 rounded-md"></img>
+                <span className="font-black text-lg">Buscar</span>
+            </div>
+            </div>
             {operaciones.length ? (
                 <>
                     <ListaOperaciones
