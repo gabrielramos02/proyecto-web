@@ -8,12 +8,12 @@ const Operacion = ({
 }) => {
     return (
         <div className="bg-white my-5 mx-10 py-5 px-3 md:w-2/5 rounded-lg md:flex md:flex-col md:items-center">
-            <h1 className="text-3xl font-bold text-center mb-3">Operacion</h1>
+            <h1 className="text-3xl font-bold text-center mb-3">Operación</h1>
             <div className="border font-semibold rounded-md bg-gray-50 w-full text-xl mx-3 px-3">
                 <p className="py-1">Nombre del Paciente: {name}</p>
                 <p className="py-1">Apellidos del Paciente: {surname}</p>
                 <p className="py-1">Tiempo Estimado: {tiempo}</p>
-                <p className="py-1">Clasificacion: {clasificacion}</p>
+                <p className="py-1">Clasificación: {clasificacion}</p>
             </div>
             <input
                 type="button"

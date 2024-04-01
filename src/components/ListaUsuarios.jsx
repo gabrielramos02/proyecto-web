@@ -74,9 +74,9 @@ const ModificarUsuario = () => {
                         <table className="w-full">
                             <thead className="bg-sky-600">
                                 <tr className="text-left">
-                                    <th className="p-3">username</th>
-                                    <th className="p-3">rol</th>
-                                    <th className="p-3">enabled</th>
+                                    <th className="p-3">Username</th>
+                                    <th className="p-3">Rol</th>
+                                    <th className="p-3">Estado</th>
                                     <th className="p-2">
                                         <Link
                                             to="./crearusuario"
@@ -100,7 +100,7 @@ const ModificarUsuario = () => {
                                             <td className="p-3">
                                                 {user.username}
                                             </td>
-                                            <td className="p-3">{user.role}</td>
+                                            <td className="p-3">{user.role=="medico"? "médico": user.role}</td>
                                             <td className="p-3">
                                                 {user.enabled
                                                     ? "Habilitado"

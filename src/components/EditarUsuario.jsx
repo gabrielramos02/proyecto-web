@@ -23,7 +23,7 @@ const EditarUsuario = () => {
         const access_token = localStorage.getItem("access_token")
         if ([password, passwordConf].includes("")) {
             setAlert({
-                msg: "Todos los campos son obligatorios",
+                msg: "Todos los campos son obligatorios.",
                 error: true,
             })
             return
@@ -33,14 +33,14 @@ const EditarUsuario = () => {
         }
         else{
             setAlert({
-                msg: "El password debe tener mas de 8 caracteres sin espacio",
+                msg: "El password debe tener más de 8 caracteres sin espacios.",
                 error: true,
             })
             return
         }
         if (password !== passwordConf) {
             setAlert({
-                msg: "Las contrase;as deben coindicir",
+                msg: "Las contraseñas no coinciden.",
                 error: true,
             })
             return

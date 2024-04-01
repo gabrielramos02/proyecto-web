@@ -84,7 +84,7 @@ const Director = () => {
         e.preventDefault()
         if ([fechaInicio, fechaFin].includes("")) {
             setAlert({
-                msg: "Todos los campos son obligatorios",
+                msg: "Todos los campos son obligatorios.",
                 error: true,
             })
             return
@@ -97,7 +97,7 @@ const Director = () => {
     return (
         <div>
             <div className="flex justify-between">
-                <h1 className="text-4xl font-black">Pagina principal</h1>
+                <h1 className="text-4xl font-black">Página principal.</h1>
                 <div className="">
                     <img
                         src={busc}
@@ -153,7 +153,7 @@ const Director = () => {
                             </div>
                             <input
                                 type="submit"
-                                value="Agregar"
+                                value="Buscar"
                                 className="bg-sky-600 w-full py-3 text-white uppercase text-bold rounded-md hover:bg-sky-700 hover:cursor-pointer transition-colors mb-5 mt-5"
                             ></input>
                         </form>
@@ -171,7 +171,7 @@ const Director = () => {
             ) : (
                 <>
                     <h1 className="text-4xl font-black text-center m-11">
-                        No hay Operaciones Planificadas
+                        No hay operaciones planificadas.
                     </h1>
                 </>
             )}
@@ -186,8 +186,8 @@ const Director = () => {
             ) : (
                 <>
                     <h1 className="text-4xl font-black text-center m-11">
-                        No hay Operaciones De Urgencia Realizadas En El Ultimo
-                        Mes
+                        No hay operaciones de urgencia realizadas en el último
+                        mes.
                     </h1>
                 </>
             )}

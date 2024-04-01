@@ -10,13 +10,13 @@ const ListaOperaciones = ({ operaciones, setOperaciones }) => {
                     <table className="w-full">
                         <thead className="bg-sky-600">
                             <tr className="text-left">
-                                <th className="p-3">Hora Ejecucion</th>
-                                <th className="p-3">Clasificacion</th>
+                                <th className="p-3">Hora Ejecución</th>
+                                <th className="p-3">Clasificación</th>
                                 <th className="p-3">
                                     Nombre y Apellidos del Paciente
                                 </th>
                                 <th className="p-3">Encargado</th>
-                                <th className="p-3">Duracion Estimada</th>
+                                <th className="p-3">Duración Estimada</th>
                             </tr>
                         </thead>
                         <tbody className="text-black bg-white">

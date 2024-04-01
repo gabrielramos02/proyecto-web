@@ -4,7 +4,7 @@ const Ocupacion = ({ camasSalas, setCamasSalas }) => {
     return (
         <div className="container flex flex-col items-center">
             <h1 className="text-4xl font-black text-center mb-10">
-                Estadisticas de Ocupacion
+                Estadísticas de ocupación del hospital.
             </h1>
             <LineChart
                 width={1200}

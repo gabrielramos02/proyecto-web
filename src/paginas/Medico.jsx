@@ -28,7 +28,7 @@ const Medico = () => {
 
     return (
         <div>
-            <h1 className="text-4xl font-black">Pagina principal</h1>
+            <h1 className="text-4xl font-black">Página principal</h1>
             {operaciones.length ? (
                 <>
                     <ListaOperaciones
@@ -40,7 +40,7 @@ const Medico = () => {
             ) : (
                 <>
                     <h1 className="text-4xl font-black text-center">
-                        No hay Operaciones Planificadas
+                        No hay operaciones planificadas.
                     </h1>
                 </>
             )}

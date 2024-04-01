@@ -38,7 +38,7 @@ const SolicitudOperaciones = () => {
         const access_token = localStorage.getItem("access_token")
         if ([clasificacion, tiempoEstimado].includes("")) {
             setAlert({
-                msg: "Todos los campos son obligatorios",
+                msg: "Todos los campos son obligatorios.",
                 error: true,
             })
             return
@@ -55,7 +55,7 @@ const SolicitudOperaciones = () => {
                     },
                 }
             )
-            setAlert({ msg: "Operacion Agregada", error: false })
+            setAlert({ msg: "Operación agregada.", error: false })
             setClasificacion("")
             setTiempoEstimado("")
             setPaciente({})
@@ -73,7 +73,7 @@ const SolicitudOperaciones = () => {
         <div className="container md:flex md:justify-center min-w-screen">
             <div className="w-full md:flex md:flex-col">
                 <h1 className="text-4xl font-black text-center">
-                    Solicitud Operaciones
+                    Solicitud de operación.
                 </h1>
 
                 <div className="md:flex md:flex-col md:items-center">

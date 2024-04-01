@@ -11,7 +11,7 @@ const EliminarUsuario = () => {
         const access_token = localStorage.getItem("access_token")
         if ([username].includes("")) {
             setAlert({
-                msg: "Todos los campos son obligatorios",
+                msg: "Todos los campos son obligatorios.",
                 error: true,
             })
             return
@@ -26,7 +26,7 @@ const EliminarUsuario = () => {
                     },
                 }
             )
-            setAlert({ msg: "Usuario Eliminado", error: false })
+            setAlert({ msg: "Usuario Eliminado.", error: false })
             setUsername("")
         } catch (error) {
             setAlert({

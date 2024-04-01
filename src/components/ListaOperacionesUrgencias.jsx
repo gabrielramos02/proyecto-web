@@ -5,7 +5,7 @@ const ListaOperacionesUrgencias = ({
     return (
         <div>
             <h1 className="text-4xl font-black text-center">
-                Lista Operaciones Urgencia Ultimo Mes
+                Lista de operaciones de urgencia en el último mes.
             </h1>
             <div className="container p-2 mx-auto sm:p-4 text-gray-100 md:flex md:justify-center">
                 <div className="overflow-x-auto rounded-lg shadow-lg w-full">
@@ -15,10 +15,10 @@ const ListaOperacionesUrgencias = ({
                                 <th className="p-3">
                                     Nombre y Apellidos del Paciente
                                 </th>
-                                <th className="p-3">Clasificacion</th>
+                                <th className="p-3">Clasificación</th>
                                 <th className="p-3">Encargado</th>
                                 <th className="p-3">Fecha Realizada</th>
-                                <th className="p-3">Duracion Real</th>
+                                <th className="p-3">Duración Real</th>
                             </tr>
                         </thead>
                         <tbody className="text-black bg-white">
