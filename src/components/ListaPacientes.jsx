@@ -72,7 +72,7 @@ const ListaPacientes = () => {
                     {" "}
                     <h2 className="text-3xl font-black text-center">
                         {" "}
-                        Lista Pacientes
+                        Lista de pacientes.
                     </h2>
                     <div className="min-w-96 mt-3">
                         <div className="container p-2 mx-auto sm:p-4 text-gray-100 md:flex md:justify-center">

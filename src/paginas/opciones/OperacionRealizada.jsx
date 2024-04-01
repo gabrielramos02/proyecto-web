@@ -39,7 +39,7 @@ const OperacionRealizada = () => {
         const access_token = localStorage.getItem("access_token")
         if ([tiempoReal, descripcion].includes("")) {
             setAlert({
-                msg: "Todos los campos son obligatorios",
+                msg: "Todos los campos son obligatorios.",
                 error: true,
             })
             return
@@ -60,7 +60,7 @@ const OperacionRealizada = () => {
                     }
                 }
             )
-            setAlert({ msg: "Operaracion Realizada", error: false })
+            setAlert({ msg: "Operaración realizada.", error: false })
             setOperacion("")
             setOperaciones([])
             setTiempoReal("")
@@ -81,7 +81,7 @@ const OperacionRealizada = () => {
             <div className="container md:flex md:justify-center min-w-screen">
                 <div className="w-full md:flex md:flex-col">
                     <h1 className="text-4xl font-black text-center">
-                        Operacion Realizada
+                        Operación realizada.
                     </h1>
 
                     <div className="md:flex md:flex-col md:items-center">
@@ -93,7 +93,7 @@ const OperacionRealizada = () => {
                             onSubmit={handleSubmit}
                         >
                             <h1 className="text-3xl font-bold text-center mb-3">
-                                Operacion
+                                Operación
                             </h1>
                             <div className="border font-semibold rounded-md bg-gray-50 w-full text-xl mb-5 px-3">
                                 <p className="py-1">
@@ -109,7 +109,7 @@ const OperacionRealizada = () => {
                                     {operacion.tiempo_duracion_estimado}{" "}
                                 </p>
                                 <p className="py-1">
-                                    Clasificacion: {operacion.clasificacion}{" "}
+                                    Clasificación: {operacion.clasificacion}{" "}
                                 </p>
                             </div>
 
@@ -129,7 +129,7 @@ const OperacionRealizada = () => {
                                 <textarea
                                     id="descripcion"
                                     type="text"
-                                    placeholder="Descripcion"
+                                    placeholder="Descripción"
                                     className="w-full p-3 border rounded-xl bg-gray-50"
                                     value={descripcion}
                                     onChange={(e) =>
@@ -140,7 +140,7 @@ const OperacionRealizada = () => {
 
                             <input
                                 type="submit"
-                                value="Operacion Realizada"
+                                value="Operación Realizada"
                                 className="bg-sky-600 w-full py-3 text-white uppercase font-bold rounded-md hover:bg-sky-700 hover:cursor-pointer transition-colors"
                             ></input>
                         </form>
@@ -157,13 +157,13 @@ const OperacionRealizada = () => {
                     <>
                         {" "}
                         <h1 className="text-4xl font-black text-center">
-                            Operaciones por Realizar
+                            Operaciones por realizar.
                         </h1>
                     </>
                 ) : (
                     <>
                         <h1 className="text-4xl font-black text-center">
-                            No hay Operaciones
+                            No hay operaciones pendientes.
                         </h1>
                     </>
                 )}

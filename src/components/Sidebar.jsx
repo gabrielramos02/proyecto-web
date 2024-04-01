@@ -25,7 +25,7 @@ const SideBar = ({ value }) => {
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
                     onClick={() => setIsOpen(false)}
                 >
-                    Gestion de Usuario
+                    Gestión de usuarios
                 </Link>
             )}
 
@@ -35,7 +35,7 @@ const SideBar = ({ value }) => {
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
                     onClick={() => setIsOpen(false)}
                 >
-                    Gestion de Operacion
+                    Gestión de Operaciones
                 </Link>
             )}
 
@@ -45,7 +45,7 @@ const SideBar = ({ value }) => {
                     className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-md"
                     onClick={() => setIsOpen(false)}
                 >
-                    Gestion Paciente
+                    Gestión de pacientes
                 </Link>
             )}
             {auth.role === "medico" && (

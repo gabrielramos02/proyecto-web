@@ -108,7 +108,7 @@ const Recepcionista = () => {
   return (
     <div className="md:flex md:justify-center">
       <div className="min-w-96 md:mr-10 md:w-4/5">
-        <h2 className="text-3xl text-center font-black">Agregar Paciente</h2>
+        <h2 className="text-3xl text-center font-black">Agregar paciente.</h2>
         <div className="block w-full">{msg && <Alert alert={alert} />}</div>
         <form
           className="my-10 bg-white shadow rounded-lg px-10 py-5"
@@ -156,7 +156,7 @@ const Recepcionista = () => {
             <input
               id="historiaClinica"
               type="text"
-              placeholder="Historia Clinica"
+              placeholder="Historia Clínica"
               className="w-full mt-3 p-2 border rounded-xl bg-gray-50"
               value={historia_clinica}
               onChange={(e) => setHistoriaClinica(e.target.value)}

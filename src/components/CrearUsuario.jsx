@@ -20,7 +20,7 @@ const CrearUsuario = () => {
     const access_token = localStorage.getItem("access_token");
     if ([username, password, passwordConf, role].includes("")) {
       setAlert({
-        msg: "Todos los campos son obligatorios",
+        msg: "Todos los campos son obligatorios.",
         error: true,
       });
       return;
@@ -29,7 +29,7 @@ const CrearUsuario = () => {
     if (validarUsername(username)) {
     } else {
       setAlert({
-        msg: "El usuario no es valido",
+        msg: "El usuario no es válido.",
         error: true,
       });
       return;
@@ -38,14 +38,14 @@ const CrearUsuario = () => {
     if (validarPassword(password)) {
     } else {
       setAlert({
-        msg: "El password debe cumplir los requisitos minimos de seguridad, combinaciones alfanumericas, caracteres especiales y 8 caracteres minimo",
+        msg: "El password debe cumplir los requisitos de seguridad, combinaciones alfanuméricas, caracteres especiales y 8 caracteres como mínimo.",
         error: true,
       });
       return;
     }
     if (password !== passwordConf) {
       setAlert({
-        msg: "Las contrasenias deben coindicir",
+        msg: "Las contraseñas no coinciden.",
         error: true,
       });
       return;
@@ -61,7 +61,7 @@ const CrearUsuario = () => {
           },
         }
       );
-      setAlert({ msg: "Usuario Agregado", error: false });
+      setAlert({ msg: "Usuario Agregado.", error: false });
       setUsername("");
       setPassword("");
       setPasswordConf("");

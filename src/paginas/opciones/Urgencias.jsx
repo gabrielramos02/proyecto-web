@@ -15,21 +15,21 @@ const Urgencias = () => {
     const access_token = localStorage.getItem("access_token");
     if ([name, surname, tiempoEstimado].includes("")) {
       setAlert({
-        msg: "Todos los campos son obligatorios",
+        msg: "Todos los campos son obligatorios.",
         error: true,
       });
       return;
     }
     if (!validarNombre(name)) {
       setAlert({
-        msg: "El nombre es incorrecto",
+        msg: "El nombre es incorrecto.",
         error: true,
       });
       return;
     }
     if (!validarApellidos(surname)) {
       setAlert({
-        msg: "El apellido es incorrecto",
+        msg: "El apellido es incorrecto.",
         error: true,
       });
       return;
@@ -49,7 +49,7 @@ const Urgencias = () => {
           Authorization: `Bearer ${access_token}`,
         },
       });
-      setAlert({ msg: "Operacion Agregada", error: false });
+      setAlert({ msg: "Operación agregada.", error: false });
       setName("");
       setSurname("");
       setTiempoEstimado("");

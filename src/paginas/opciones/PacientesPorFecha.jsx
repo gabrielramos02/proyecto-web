@@ -34,7 +34,7 @@ const PacientesPorFecha = () => {
                     {" "}
                     <h2 className="text-3xl font-black text-center">
                         {" "}
-                        Lista Pacientes
+                        Lista de pacientes.
                     </h2>
                     <div className="min-w-96 mt-3">
                         <div className="container p-2 mx-auto sm:p-4 text-gray-100 md:flex md:justify-center">
@@ -45,7 +45,7 @@ const PacientesPorFecha = () => {
                                             <th className="p-3">Nombre</th>
                                             <th className="p-3">Apellidos</th>
                                             <th className="p-3">
-                                                Historia Clinica
+                                                Historia Clínica
                                             </th>
                                             <th className="p-3">
                                                 Fecha Ingreso
@@ -86,7 +86,7 @@ const PacientesPorFecha = () => {
             ) : (
                 <>
                     <h1 className="text-4xl font-black text-center">
-                        No hay Pacientes
+                        No hay Pacientes.
                     </h1>
                 </>
             )}

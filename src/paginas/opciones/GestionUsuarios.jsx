@@ -9,7 +9,7 @@ const GestionUsuarios = () => {
     return (
         <div>
             <h1 className="font-black text-3xl text-center">
-                Gestion de Usuario
+                Gestión de usuarios.
             </h1>
             <div className="lg:flex lg:justify-center mt-3">
                 <Outlet/>
