@@ -40,25 +40,31 @@ const ModificarUsuario = () => {
         navigate(`./editarusuario/${username}`)
     }
     const eliminar = async (username) => {
-        const access_token = localStorage.getItem("access_token")
-        try {
-            const { data } = await clienteAxios.put(
-                `/user/desactivar/${username}`,
-                {},
-                {
-                    headers: {
-                        accept: "application/json",
-                        Authorization: `Bearer ${access_token}`,
-                    },
-                }
-            )
-            setAlert({ msg: "Usuario Eliminado", error: false })
-            SetCargar(!cargar)
-        } catch (error) {
-            setAlert({
-                msg: error.response.data.detail,
-                error: true,
-            })
+        const resultado = window.confirm("¿Está seguro que desea eliminar el usuario?")
+        if (!resultado){
+            return
+        }
+        else{
+            const access_token = localStorage.getItem("access_token")
+            try {
+                const { data } = await clienteAxios.put(
+                    `/user/desactivar/${username}`,
+                    {},
+                    {
+                        headers: {
+                            accept: "application/json",
+                            Authorization: `Bearer ${access_token}`,
+                        },
+                    }
+                )
+                setAlert({ msg: "Usuario Eliminado", error: false })
+                SetCargar(!cargar)
+            } catch (error) {
+                setAlert({
+                    msg: error.response.data.detail,
+                    error: true,
+                })
+            }
         }
     }
 

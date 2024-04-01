@@ -5,6 +5,7 @@ import clienteAxios from "../config/clienteAxios"
 import docs from "/src/iconos/documents.png"
 import dele from "/src/iconos/delete.png"
 
+
 const ListaPacientes = () => {
     const [cargar, SetCargar] = useState(true)
     const [sala, setSala] = useState("1")
@@ -12,7 +13,7 @@ const ListaPacientes = () => {
     const [pacientes, setPacientes] = useState([])
 
     const [alert, setAlert] = useState({})
-
+ 
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -42,6 +43,10 @@ const ListaPacientes = () => {
     }
 
     const eliminar = async (id) => {
+        const resultado = window.confirm("¿Está seguro que desea eliminar el paciente?")
+        if (!resultado){
+            return
+        }
         const access_token = localStorage.getItem("access_token")
         try {
             const { data } = await clienteAxios.put(
@@ -234,6 +239,7 @@ const ListaPacientes = () => {
                     </h1>
                 </>
             )}
+            
         </div>
     )
 }
