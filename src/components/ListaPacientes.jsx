@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import clienteAxios from "../config/clienteAxios"
 import docs from "/src/iconos/documents.png"
 import dele from "/src/iconos/delete.png"
+import swal from "sweetalert"
 
 const ListaPacientes = () => {
     const [cargar, SetCargar] = useState(true)
@@ -12,7 +13,7 @@ const ListaPacientes = () => {
     const [pacientes, setPacientes] = useState([])
 
     const [alert, setAlert] = useState({})
-
+    const [eliminarpaciente, setEliminarpaciente] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -42,6 +43,10 @@ const ListaPacientes = () => {
     }
 
     const eliminar = async (id) => {
+        const resultado = window.confirm("¿Está seguro que desea eliminar?")
+        if (!resultado){
+            return
+        }
         const access_token = localStorage.getItem("access_token")
         try {
             const { data } = await clienteAxios.put(
@@ -63,7 +68,9 @@ const ListaPacientes = () => {
             })
         }
     }
-
+    const mostrarAlerta = () => {
+        swet 
+    }
     const { msg } = alert
     return (
         <div className="min-w-96 px-10 w-full">
@@ -234,6 +241,7 @@ const ListaPacientes = () => {
                     </h1>
                 </>
             )}
+            
         </div>
     )
 }
