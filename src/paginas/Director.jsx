@@ -186,8 +186,8 @@ const Director = () => {
             ) : (
                 <>
                     <h1 className="text-4xl font-black text-center m-11">
-                        No hay Operaciones De Urgencia Realizadas En El Ultimo
-                        Mes
+                        No hay operaciones de urgencia realizadas en el ultimo
+                        mes
                     </h1>
                 </>
             )}
