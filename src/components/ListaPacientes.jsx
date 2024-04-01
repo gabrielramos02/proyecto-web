@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import clienteAxios from "../config/clienteAxios"
 import docs from "/src/iconos/documents.png"
 import dele from "/src/iconos/delete.png"
-import swal from "sweetalert"
+
 
 const ListaPacientes = () => {
     const [cargar, SetCargar] = useState(true)
@@ -13,7 +13,7 @@ const ListaPacientes = () => {
     const [pacientes, setPacientes] = useState([])
 
     const [alert, setAlert] = useState({})
-    const [eliminarpaciente, setEliminarpaciente] = useState(false)
+ 
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -68,9 +68,7 @@ const ListaPacientes = () => {
             })
         }
     }
-    const mostrarAlerta = () => {
-        swet 
-    }
+
     const { msg } = alert
     return (
         <div className="min-w-96 px-10 w-full">
