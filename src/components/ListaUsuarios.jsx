@@ -40,7 +40,7 @@ const ModificarUsuario = () => {
         navigate(`./editarusuario/${username}`)
     }
     const eliminar = async (username) => {
-        const resultado = window.confirm("¿Está seguro que desea eliminar?")
+        const resultado = window.confirm("¿Está seguro que desea eliminar el usuario?")
         if (!resultado){
             return
         }

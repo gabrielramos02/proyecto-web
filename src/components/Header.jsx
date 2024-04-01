@@ -2,6 +2,10 @@ import logt from "/src/iconos/log-out.png";
 
 const Header = ({ value }) => {
   const cerrarSesion = (e) => {
+    const resultado = window.confirm("¿Está seguro que desea cerrar sesión?")
+    if (!resultado){
+        return
+    }
     e.preventDefault();
     localStorage.clear();
     window.location.reload();

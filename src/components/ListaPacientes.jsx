@@ -43,7 +43,7 @@ const ListaPacientes = () => {
     }
 
     const eliminar = async (id) => {
-        const resultado = window.confirm("¿Está seguro que desea eliminar?")
+        const resultado = window.confirm("¿Está seguro que desea eliminar el paciente?")
         if (!resultado){
             return
         }
