@@ -5,7 +5,7 @@ const GestionPaciente = () => {
         <div className="container md:flex md:justify-center min-w-screen">
             <div className="w-full md:flex md:justify-center md:flex-col">
                 <h1 className="text-4xl font-black text-center">
-                    Gestion Paciente
+                    Gestión Paciente
                 </h1>
 
                 <Outlet />

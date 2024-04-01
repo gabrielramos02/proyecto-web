@@ -47,7 +47,7 @@ const Login = () => {
     return (
         <div>
             <h1 className="text-sky-600 font-black text-6xl text-center">
-                Inicia <span className="text-slate-700">sesion</span>
+                Inicia <span className="text-slate-700">sesión</span>
             </h1>
 
             {msg && <Alert alert={alert} />}
@@ -90,7 +90,7 @@ const Login = () => {
                 </div>
                 <input
                     type="submit"
-                    value="Iniciar Sesion"
+                    value="Iniciar Sesión"
                     className="bg-sky-600 w-full py-3 text-white uppercase text-bold rounded-md hover:bg-sky-700 hover:cursor-pointer transition-colors mb-7 mt-7"
                 ></input>
             </form>

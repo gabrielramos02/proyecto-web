@@ -44,28 +44,28 @@ const Recepcionista = () => {
     const access_token = localStorage.getItem("access_token");
     if ([name, surname, historia_clinica, cama, sala].includes("")) {
       setAlert({
-        msg: "Todos los campos son obligatorios",
+        msg: "Todos los campos son obligatorios.",
         error: true,
       });
       return;
     }
     if (!validarNombre(name)) {
       setAlert({
-        msg: "Los nombres deben iniciar con mayusculas.",
+        msg: "Los nombres deben iniciar con mayúsculas.",
         error: true,
       });
       return;
     }
     if (!validarApellidos(surname)) {
       setAlert({
-        msg: "Los apellidos deben iniciar con mayusculas.",
+        msg: "Los apellidos deben iniciar con mayúsculas.",
         error: true,
       });
       return;
     }
     if (!validarHistoriaClinica(historia_clinica)) {
       setAlert({
-        msg: "La historia clinica debe estar compuesta por 5 digitos.",
+        msg: "La historia clínica debe estar compuesta por 5 dígitos.",
         error: true,
       });
       return;
@@ -151,7 +151,7 @@ const Recepcionista = () => {
               className="uppercase text-gray-600 block text-md font-bold"
               htmlFor="historiaClinica"
             >
-              Historia Clinica:
+              Historia Clínica:
             </label>
             <input
               id="historiaClinica"

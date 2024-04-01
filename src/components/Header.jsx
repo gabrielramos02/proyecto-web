@@ -26,7 +26,7 @@ const Header = ({ value }) => {
           onClick={cerrarSesion}
         >
           <p className="mx-2 font-semibold text-sky-700 text-xl">
-            Cerrar <span className="text-slate-600"> Sesion</span>
+            Cerrar <span className="text-slate-600"> Sesión</span>
           </p>
           <img
             src={logt}
