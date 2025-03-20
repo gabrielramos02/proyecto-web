@@ -6,4 +6,4 @@ Este es el frontend del proyecto de desarrollo web para la asignatura en la carr
 - ReactJS(Framework)
 - Tailwind(CSS)
 - Axios(API)
-#### Listo para desplegar en Netlify
+#### Desplegado en Netlify
